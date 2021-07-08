@@ -1,0 +1,11 @@
+/models
+/Jupyter_notebooks/Auto-Annotation/satellite_output_base_stage/
+/Jupyter_notebooks/Auto-Annotation/satellite_output_stage_1/
+/Jupyter_notebooks/Auto-Annotation/satellite_output_stage_2/
+/Jupyter_notebooks/Auto-Annotation/satellite_output_stage_3/
+/Jupyter_notebooks/Auto-Annotation/satellite_output_stage_4/
+/Jupyter_notebooks/Auto-Annotation/satellite_output_stage_5/
+/Jupyter_notebooks/Auto-Annotation/satellite_output_stage_6/
+/Jupyter_notebooks/Auto-Annotation/satellite_output_stage_7/
+/SEM_Images/
+**/*.ipynb_checkpoints/
