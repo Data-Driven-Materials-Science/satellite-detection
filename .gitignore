@@ -8,4 +8,6 @@
 /Jupyter_notebooks/Auto-Annotation/satellite_output_stage_6/
 /Jupyter_notebooks/Auto-Annotation/satellite_output_stage_7/
 /SEM_Images/
+Jupyter_notebooks/Auto-Annotation/transformation_training/train_powder_transformations_60000_GC.ipynb
+Jupyter_notebooks/Auto-Annotation/transformation_training/train_powder_transformations.ipynb
 **/*.ipynb_checkpoints/
