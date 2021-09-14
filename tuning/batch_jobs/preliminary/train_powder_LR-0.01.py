@@ -36,8 +36,8 @@ from ampis.visualize import display_iset
 #CONSTANTS
 #--------------------------------------------------------------
 EXPERIMENT_NAME = 'satellite' # can be 'particle' or 'satellite'
-NUM_ITERATIONS = 12000
-CHECKPOINT_NUM = 1000
+NUM_ITERATIONS = 1200
+CHECKPOINT_NUM = 100
 NUM_CYCLES = 12
 OUTPUT_FOLDER = 'batch_temp1'
 LR = 0.001
@@ -119,7 +119,7 @@ trainer.resume_or_load(resume=False)  # start training from iteration 0
 trainer.train()  # train the model!
 
 
-pickle_folder = []
+
 #CREATING PREDICTOR
 model_checkpoints = sorted(Path(cfg.OUTPUT_DIR).glob('*.pth'))  # paths to weights saved druing training
 #cfg.DATASETS.TEST = (dataset_train, dataset_valid)  # predictor requires this field to not be empty
@@ -149,7 +149,7 @@ for cycle in range(len(model_checkpoints)):
         title = 'results_checkpoint_' + str((cycle * CHECKPOINT_NUM - 1)) + ".pickle"
     with open(Path(ocean_images, 'weights', OUTPUT_FOLDER, title), 'wb') as f:
         pickle.dump(results, f)
-    pickle_folder.append(title)
+    
     #CALCULATING SEGMENTATION SCORES
     average_p = []
     average_r = []
@@ -253,15 +253,8 @@ for cycle in range(len(model_checkpoints)):
         f = open(file_name, "a")
         f.write('\n')
         f.close()
+    print("Deleting: " + str(model_checkpoints[-cycle]))
+    os.remove(str(model_checkpoints[-cycle]))
 for model in len(CHECKPOINT_NUM):
     print("Deleting: " + str(model_checkpoints[-model]))
     os.remove(str(model_checkpoints[-model]))
-for file in len(pickle_folder):
-    temp = "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER + pickle_folder[file]
-    print("Deleting: " + temp)
-    os.remove(temp)
-print("Removing: " + "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER +"metrics.json")
-os.remove("../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER +"metrics.json")
-print("Removing: " + "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER +"last_checkpoint")
-os.remove("../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER +"last_checkpoint")
-
