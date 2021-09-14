@@ -38,6 +38,7 @@ from ampis.visualize import display_iset
 EXPERIMENT_NAME = 'satellite' # can be 'particle' or 'satellite'
 NUM_ITERATIONS = 5000
 CHECKPOINT_NUM = 1000
+NUM_CYCLES = 5
 OUTPUT_FOLDER = 'batch_temp1'
 #--------------------------------------------------------------
 
@@ -119,8 +120,9 @@ trainer.train()  # train the model!
 #CREATING PREDICTOR
 model_checkpoints = sorted(Path(cfg.OUTPUT_DIR).glob('*.pth'))  # paths to weights saved druing training
 #cfg.DATASETS.TEST = (dataset_train, dataset_valid)  # predictor requires this field to not be empty
-for i in range(NUM_ITERATIONS/CHECKPOINT_NUM):
-    cfg.MODEL.WEIGHTS = str(model_checkpoints[-i-1])  # use the last model checkpoint saved during training. If you want to see the performance of other checkpoints you can select a different index from model_checkpoints.
+for cycle in range(len(model_checkpoints)):
+    cfg.MODEL.WEIGHTS = str(model_checkpoints[-cycle])  # use the last model checkpoint saved during training. If you want to see the performance of other checkpoints you can select a different index from model_checkpoints.
+    print("USING MODEL WEIGHT: " + str(model_checkpoints[-cycle]))
     predictor = DefaultPredictor(cfg)  # create predictor object
     #SAVING RESULTS
     results = []
@@ -138,19 +140,19 @@ for i in range(NUM_ITERATIONS/CHECKPOINT_NUM):
             visualize.display_ddicts(outs, None, ds, gt=False, img_path=dd['file_name'])
     
     # save to disk
-    if i != 0:
+    if cycle == 0:
         title = 'results_checkpoint_0.pickle'
     else:
-        title = 'results_checkpoint_' + (i * CHECKPOINT_NUM - 1) + ".pickle"
+        title = 'results_checkpoint_' + str((cycle * CHECKPOINT_NUM - 1)) + ".pickle"
     with open(Path(ocean_images, 'weights', OUTPUT_FOLDER, title), 'wb') as f:
         pickle.dump(results, f)
     
     #CALCULATING SEGMENTATION SCORES
     average_p = []
     average_r = []
-    for i in range(7):
+    for i in range(1):
         #Loading Ground Truth Labels
-        satellites_gt_path = Path('satellite_auto_validation_v1.2.json')
+        satellites_gt_path = Path(ocean_images, 'satellite_auto_validation_v1.2.json')
         for path in [satellites_gt_path]:
             assert path.is_file(), f'File not found : {path}'
         satellites_gt_dd = data_utils.get_ddicts('via2', satellites_gt_path, dataset_class='train')
@@ -191,7 +193,7 @@ for i in range(NUM_ITERATIONS/CHECKPOINT_NUM):
         ax.set_ylabel('detection score')
         ax.set_xticklabels(['precision','recall'])
         print("Average Precision Score: ", str(sum([*[x['det_precision'] for x in dss_satellites]])/len([*[x['det_precision'] for x in dss_satellites]])))
-        print("Average Precision Score: ", str(sum([*[x['det_recall'] for x in dss_satellites]])/len([*[x['det_recall'] for x in dss_satellites]])))
+        print("Average Recall Score:    ", str(sum([*[x['det_recall'] for x in dss_satellites]])/len([*[x['det_recall'] for x in dss_satellites]])))
         #Analyzing Prediction Scores on a pixel level
         temp_p = []
         temp_r = []
@@ -226,22 +228,23 @@ for i in range(NUM_ITERATIONS/CHECKPOINT_NUM):
             print('---')
         average_p.append(temp_p)
         average_r.append(temp_r)
-        counter = 0   
+        '''counter = 0   
         for iset in iset_satellites_gt:
             gt = iset_satellites_gt[counter]
             pred = iset_satellites_pred[counter]
             iset_det, colormap = analyze.det_perf_iset(gt, pred)
             img = skimage.color.gray2rgb(skimage.io.imread(iset.filepath))
             #display_iset(img, iset=iset_det)
-            counter += 1
-    file_name = 'single_train_output_it_' + i + '.txt'
+            counter += 1'''
+    
+    file_name = 'single_train_output_it_' + str(len(model_checkpoints) - cycle) + '.txt'
     with open(file_name, "a") as output:
         output.write(str(average_p))
     f = open(file_name, "a")
     f.write('\n')
     f.close()
     with open(file_name, "a") as output:
-        output.write(str(average_p))
+        output.write(str(average_r))
     f = open(file_name, "a")
     f.write('\n')
     f.close()
