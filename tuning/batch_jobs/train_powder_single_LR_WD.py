@@ -36,12 +36,14 @@ from ampis.visualize import display_iset
 #CONSTANTS
 #--------------------------------------------------------------
 EXPERIMENT_NAME = 'satellite' # can be 'particle' or 'satellite'
-NUM_ITERATIONS = 1200
-CHECKPOINT_NUM = 100
-NUM_CYCLES = 12
+NUM_ITERATIONS = 100
+CHECKPOINT_NUM = 50
+NUM_CYCLES = 2
 OUTPUT_FOLDER = 'batch_temp1'
 LR = 0.001
 WD = 0.0001
+#LR = 0.00000001
+#WD = 0.0000000000001
 BB = 'ResNet50'
 #--------------------------------------------------------------
 
@@ -100,6 +102,11 @@ cfg.TEST.DETECTIONS_PER_IMAGE = 400 if EXPERIMENT_NAME == 'particle' else 250  #
 cfg.SOLVER.MAX_ITER = NUM_ITERATIONS  # maximum number of iterations to run during training
                             # Increasing this may improve the training results, but will take longer to run (especially without a gpu!)
 
+#-------------------------------------------------
+cfg.SOLVER.BASE_LR = LR
+cfg.SOLVER.WEIGHT_DECAY = WD
+#-------------------------------------------------
+
 # model weights will be downloaded if they are not present
 weights_path = Path('..','..','models','model_final_f10217.pkl')
 if weights_path.is_file():
@@ -119,7 +126,7 @@ trainer.resume_or_load(resume=False)  # start training from iteration 0
 trainer.train()  # train the model!
 
 
-
+pickle_folder = []
 #CREATING PREDICTOR
 model_checkpoints = sorted(Path(cfg.OUTPUT_DIR).glob('*.pth'))  # paths to weights saved druing training
 #cfg.DATASETS.TEST = (dataset_train, dataset_valid)  # predictor requires this field to not be empty
@@ -141,15 +148,12 @@ for cycle in range(len(model_checkpoints)):
 
             # visualize results
             visualize.display_ddicts(outs, None, ds, gt=False, img_path=dd['file_name'])
-    
+    t_name = ((str(model_checkpoints[-cycle]).split('/'))[-1]).split('_')[-1].split('.pth')[0]
     # save to disk
-    if cycle == 0:
-        title = 'results_checkpoint_0.pickle'
-    else:
-        title = 'results_checkpoint_' + str((cycle * CHECKPOINT_NUM - 1)) + ".pickle"
+    title = 'results_checkpoint_' + str(t_name) + '.pickle'
     with open(Path(ocean_images, 'weights', OUTPUT_FOLDER, title), 'wb') as f:
         pickle.dump(results, f)
-    
+    pickle_folder.append(title)
     #CALCULATING SEGMENTATION SCORES
     average_p = []
     average_r = []
@@ -242,7 +246,7 @@ for cycle in range(len(model_checkpoints)):
     del (average_p[0])[-1]
     del (average_r[0])[-1]
     
-    file_name = 'single_train_output.txt'
+    file_name = 'single_train_output_LR_WD.txt'
     iteration_name = ((str(model_checkpoints[-cycle]).split('/'))[-1]).split('_')[-1].split('.pth')[0]
     if iteration_name == 'final':
         print("Ignoring Final Model")
@@ -253,8 +257,15 @@ for cycle in range(len(model_checkpoints)):
         f = open(file_name, "a")
         f.write('\n')
         f.close()
-    print("Deleting: " + str(model_checkpoints[-cycle]))
-    os.remove(str(model_checkpoints[-cycle]))
-for model in len(CHECKPOINT_NUM):
+for model in range(len(model_checkpoints)):
     print("Deleting: " + str(model_checkpoints[-model]))
     os.remove(str(model_checkpoints[-model]))
+for file in range(len(pickle_folder)):
+    temp = "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER + "/" + pickle_folder[file]
+    print("Deleting: " + temp)
+    os.remove(temp)
+print("Removing: " + "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER  + "/" +"metrics.json")
+os.remove("../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER  + "/" +"metrics.json")
+print("Removing: " + "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER + "/" +"last_checkpoint")
+os.remove("../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER + "/" + "last_checkpoint")
+
