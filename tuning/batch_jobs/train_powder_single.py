@@ -36,9 +36,9 @@ from ampis.visualize import display_iset
 #CONSTANTS
 #--------------------------------------------------------------
 EXPERIMENT_NAME = 'satellite' # can be 'particle' or 'satellite'
-NUM_ITERATIONS = 12000
-CHECKPOINT_NUM = 1000
-NUM_CYCLES = 12
+NUM_ITERATIONS = 100
+CHECKPOINT_NUM = 50
+NUM_CYCLES = 2
 OUTPUT_FOLDER = 'batch_temp1'
 LR = 0.001
 WD = 0.0001
@@ -141,12 +141,9 @@ for cycle in range(len(model_checkpoints)):
 
             # visualize results
             visualize.display_ddicts(outs, None, ds, gt=False, img_path=dd['file_name'])
-    
+    t_name = ((str(model_checkpoints[-cycle]).split('/'))[-1]).split('_')[-1].split('.pth')[0]
     # save to disk
-    if cycle == 0:
-        title = 'results_checkpoint_0.pickle'
-    else:
-        title = 'results_checkpoint_' + str((cycle * CHECKPOINT_NUM - 1)) + ".pickle"
+    title = 'results_checkpoint_' + str(t_name) + '.pickle'
     with open(Path(ocean_images, 'weights', OUTPUT_FOLDER, title), 'wb') as f:
         pickle.dump(results, f)
     pickle_folder.append(title)
@@ -253,15 +250,15 @@ for cycle in range(len(model_checkpoints)):
         f = open(file_name, "a")
         f.write('\n')
         f.close()
-for model in len(CHECKPOINT_NUM):
+for model in range(len(model_checkpoints)):
     print("Deleting: " + str(model_checkpoints[-model]))
     os.remove(str(model_checkpoints[-model]))
-for file in len(pickle_folder):
-    temp = "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER + pickle_folder[file]
+for file in range(len(pickle_folder)):
+    temp = "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER + "/" + pickle_folder[file]
     print("Deleting: " + temp)
     os.remove(temp)
-print("Removing: " + "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER +"metrics.json")
-os.remove("../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER +"metrics.json")
-print("Removing: " + "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER +"last_checkpoint")
-os.remove("../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER +"last_checkpoint")
+print("Removing: " + "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER  + "/" +"metrics.json")
+os.remove("../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER  + "/" +"metrics.json")
+print("Removing: " + "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER + "/" +"last_checkpoint")
+os.remove("../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER + "/" + "last_checkpoint")
 
