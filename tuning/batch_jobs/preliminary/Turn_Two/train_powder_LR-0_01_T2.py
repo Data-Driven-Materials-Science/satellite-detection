@@ -24,7 +24,7 @@ from detectron2.data import (
 from detectron2.engine import DefaultTrainer, DefaultPredictor
 from detectron2.structures import BoxMode
 
-root = '../../../'
+root = '../../../../../'
 ocean_images = root + '../../../../ocean/projects/dmr200021p/sprice/tuning/'
 sys.path.append(root)
 
@@ -246,7 +246,6 @@ for i in WD_list:
         del (average_p[0])[-1]
         del (average_r[0])[-1]
         
-        OUTPUT_FILE = 'LR-0_001.txt'
         iteration_name = ((str(model_checkpoints[-cycle]).split('/'))[-1]).split('_')[-1].split('.pth')[0]
         if iteration_name == 'final':
             print("Ignoring Final Model")
@@ -261,11 +260,11 @@ for i in WD_list:
         print("Deleting: " + str(model_checkpoints[-model]))
         os.remove(str(model_checkpoints[-model]))
     for file in range(len(pickle_folder)):
-        temp = "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER + "/" + pickle_folder[file]
+        temp = ocean_images + "weights/" + OUTPUT_FOLDER + "/" + pickle_folder[file]
         print("Deleting: " + temp)
         os.remove(temp)
-    print("Removing: " + "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER  + "/" +"metrics.json")
-    os.remove("../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER  + "/" +"metrics.json")
-    print("Removing: " + "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER + "/" +"last_checkpoint")
-    os.remove("../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER + "/" + "last_checkpoint")
+    print("Removing: " + ocean_images + "weights/" + OUTPUT_FOLDER  + "/" +"metrics.json")
+    os.remove(ocean_images + "weights/" + OUTPUT_FOLDER  + "/" +"metrics.json")
+    print("Removing: " + ocean_images + "weights/" + OUTPUT_FOLDER  + "/" +"last_checkpoint")
+    os.remove(ocean_images + "weights/" + OUTPUT_FOLDER  + "/" + "last_checkpoint")
 
