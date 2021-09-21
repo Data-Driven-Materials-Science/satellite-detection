@@ -24,7 +24,7 @@ from detectron2.data import (
 from detectron2.engine import DefaultTrainer, DefaultPredictor
 from detectron2.structures import BoxMode
 
-root = '../../../'
+root = '../../../../../'
 ocean_images = root + '../../../../ocean/projects/dmr200021p/sprice/tuning/'
 sys.path.append(root)
 
@@ -39,17 +39,18 @@ EXPERIMENT_NAME = 'satellite' # can be 'particle' or 'satellite'
 NUM_ITERATIONS = 15000
 CHECKPOINT_NUM = 1000
 NUM_CYCLES = 15
-OUTPUT_FOLDER = 'batch_temp5'
-LR = 0.00001
+OUTPUT_FOLDER = 'batch_temp9'
+OUTPUT_FILE = '../LR-WD_S2_T1.txt'
+LR = 0.009
 #WD = 0.0001
-WD_list = [0.01, 0.001, 0.0001, 0.00001, 0.000001]
+WD_list = [0.000001, 0.000003, 0.000005, 0.000007, 0.000009, 0.00001, 0.00003, 0.00005, 0.00007,0.00009]
 BB = 'ResNet50'
 #--------------------------------------------------------------
 for i in WD_list:
     WD = i
     ##LOADING DATA
-    json_path_train = Path(ocean_images,'satellite_auto_training_v1.6.json')  # path to training data
-    json_path_val = Path(ocean_images, 'satellite_auto_validation_v1.2.json')  # path to training data
+    json_path_train = Path('..', '..', 'SALAS_Rep', 'satellite_training.json')  # path to training data
+    json_path_val = Path('..', '..', 'SALAS_Rep', 'satellite_validation.json')  # path to training data
     assert json_path_train.is_file(), 'training file not found!'
     assert json_path_val.is_file(), 'validation file not found!'
 
@@ -245,26 +246,25 @@ for i in WD_list:
         del (average_p[0])[-1]
         del (average_r[0])[-1]
         
-        file_name = 'LR-0_001.txt'
         iteration_name = ((str(model_checkpoints[-cycle]).split('/'))[-1]).split('_')[-1].split('.pth')[0]
         if iteration_name == 'final':
             print("Ignoring Final Model")
         else:
             return_list = [LR, WD, BB, str(int(iteration_name)), str(sum(average_p[0])/len(average_p[0])), str(sum(average_r[0])/len(average_r[0]))]
-            with open(file_name, "a") as output:
+            with open(OUTPUT_FILE, "a") as output:
                 output.write(str(return_list))
-            f = open(file_name, "a")
-            f.write('\n')
+            f = open(OUTPUT_FILE, "a")
+            f.write(',\n')
             f.close()
     for model in range(len(model_checkpoints)):
         print("Deleting: " + str(model_checkpoints[-model]))
         os.remove(str(model_checkpoints[-model]))
     for file in range(len(pickle_folder)):
-        temp = "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER + "/" + pickle_folder[file]
+        temp = ocean_images + "weights/" + OUTPUT_FOLDER + "/" + pickle_folder[file]
         print("Deleting: " + temp)
         os.remove(temp)
-    print("Removing: " + "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER  + "/" +"metrics.json")
-    os.remove("../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER  + "/" +"metrics.json")
-    print("Removing: " + "../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER + "/" +"last_checkpoint")
-    os.remove("../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/" + OUTPUT_FOLDER + "/" + "last_checkpoint")
+    print("Removing: " + ocean_images + "weights/" + OUTPUT_FOLDER  + "/" +"metrics.json")
+    os.remove(ocean_images + "weights/" + OUTPUT_FOLDER  + "/" +"metrics.json")
+    print("Removing: " + ocean_images + "weights/" + OUTPUT_FOLDER  + "/" +"last_checkpoint")
+    os.remove(ocean_images + "weights/" + OUTPUT_FOLDER  + "/" + "last_checkpoint")
 

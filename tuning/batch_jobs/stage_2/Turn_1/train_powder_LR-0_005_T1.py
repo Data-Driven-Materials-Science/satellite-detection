@@ -39,11 +39,11 @@ EXPERIMENT_NAME = 'satellite' # can be 'particle' or 'satellite'
 NUM_ITERATIONS = 15000
 CHECKPOINT_NUM = 1000
 NUM_CYCLES = 15
-OUTPUT_FOLDER = 'batch_temp2'
-OUTPUT_FILE = '../LR-WD_T2.txt'
-LR = 0.01
+OUTPUT_FOLDER = 'batch_temp5'
+OUTPUT_FILE = '../LR-WD_S2_T1.txt'
+LR = 0.005
 #WD = 0.0001
-WD_list = [0.01, 0.001, 0.0001, 0.00001, 0.000001]
+WD_list = [0.000001, 0.000003, 0.000005, 0.000007, 0.000009, 0.00001, 0.00003, 0.00005, 0.00007,0.00009]
 BB = 'ResNet50'
 #--------------------------------------------------------------
 for i in WD_list:
