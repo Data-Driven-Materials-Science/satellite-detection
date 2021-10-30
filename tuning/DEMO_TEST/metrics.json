@@ -1,0 +1,1 @@
+{"iteration": 0, "roi_head/num_bg_samples": 391.0, "roi_head/num_fg_samples": 121.0, "rpn/num_neg_anchors": 128.0, "rpn/num_pos_anchors": 128.0}
