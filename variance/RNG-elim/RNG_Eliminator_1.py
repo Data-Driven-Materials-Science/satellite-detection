@@ -35,17 +35,19 @@ from ampis.visualize import display_iset
 
 #CONSTANTS
 #--------------------------------------------------------------
-EXPERIMENT_NAME = 'satellite' # can be 'particle' or 'satellite'
-NUM_ITERATIONS = 5000
-CHECKPOINT_NUM = 5000
-NUM_CYCLES = 15
-OUTPUT_FOLDER = 'batch_temp0'
-OUTPUT_FILE = '../RNG_Eliminator_Output-1.txt'
-LR = 0.01
-WD = 0.000005
-BB = 'ResNet50'
+EXPERIMENT_NAME = 'satellite'                       # can be 'particle' or 'satellite'
+NUM_ITERATIONS = 100                                # The total number of training iterations
+CHECKPOINT_NUM = 100                                # This is the number of iterations before a checkpoint is stored
+NUM_MODELS = 50                                     # This is the number of models that will be trained from scratch
+TEMP_FOLDER = 'batch_temp0'                         # The file that model weights will be stored after training before being analyzed
+OUTPUT_FILE = '../RNG_Eliminator_Output-0.txt'      # This is the file that stores precision scores
+LR = 0.01                                           # Learning Rate that is used
+WD = 0.000005                                       # Weight Decay used
+BB = 'ResNet50'                                     # Backbone structure, although not currently configured to work
+
+FINAL_MODEL_FOLDER = '../../../../../../../ocean/projects/dmr200021p/sprice/variance/RNG-ELIM/trial1/'
 #--------------------------------------------------------------
-for loop_num in range(5):
+for loop_num in range(NUM_MODELS):
     ##LOADING DATA
     json_path_train = Path('..', 'SALAS_Rep', 'satellite_training.json')  # path to training data
     json_path_val = Path('..', 'SALAS_Rep', 'satellite_validation.json')  # path to training data
@@ -113,7 +115,7 @@ for loop_num in range(5):
         weights_path = model_zoo.get_checkpoint_url("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
         print('Weights not found, weights will be downloaded from source: {}'.format(weights_path))
     cfg.MODEL.WEIGHTs = str(weights_path)
-    cfg.OUTPUT_DIR = str(Path(ocean_images, 'weights', OUTPUT_FOLDER))
+    cfg.OUTPUT_DIR = str(Path(ocean_images, 'weights', TEMP_FOLDER))
     # make the output directory
     os.makedirs(Path(cfg.OUTPUT_DIR), exist_ok=True)
 
@@ -149,7 +151,7 @@ for loop_num in range(5):
         t_name = ((str(model_checkpoints[-cycle]).split('/'))[-1]).split('_')[-1].split('.pth')[0]
         # save to disk
         title = 'results_checkpoint_' + str(t_name) + '.pickle'
-        with open(Path(ocean_images, 'weights', OUTPUT_FOLDER, title), 'wb') as f:
+        with open(Path(ocean_images, 'weights', TEMP_FOLDER, title), 'wb') as f:
             pickle.dump(results, f)
         pickle_folder.append(title)
         #CALCULATING SEGMENTATION SCORES
@@ -162,7 +164,7 @@ for loop_num in range(5):
                 assert path.is_file(), f'File not found : {path}'
             satellites_gt_dd = data_utils.get_ddicts('via2', satellites_gt_path, dataset_class='train')
             #Loading Prediction Labels
-            satellites_path = Path(ocean_images, 'weights', OUTPUT_FOLDER, title)
+            satellites_path = Path(ocean_images, 'weights', TEMP_FOLDER, title)
             assert satellites_path.is_file()
             with open(satellites_path, 'rb') as f:
                 satellites_pred = pickle.load(f)
@@ -256,24 +258,19 @@ for loop_num in range(5):
             f.close()
     for model in range(len(model_checkpoints)):
         print("Deleting: " + str(model_checkpoints[-model]))
+        print('Current File Path')
         print(str(model_checkpoints[-model]))
-        temp_list_split = str(model_checkpoints[-model]).split("/")
-        for i in range(4):
-            temp_list_split.pop()
-        temp_list_split.append("variance/RNG-ELIM/trial1/model" + str(i) + ".pth")
-        file_output_name = ''
-        for i in range(len(temp_list_split) - 1):
-            file_output_name += temp_list_split[i]
-            if i != len(temp_list_split) - 1:
-                file_output_name += '/'
-        os.rename(str(model_checkpoints[-model]), file_output_name)
+        print('New File Path')
+        print(FINAL_MODEL_FOLDER + "model" + str(loop_num) + ".pth")
+        os.makedirs(Path(FINAL_MODEL_FOLDER), exist_ok=True)
+        os.rename(Path(str(model_checkpoints[-model])), Path(FINAL_MODEL_FOLDER + "model" + str(loop_num) + ".pth"))
     for file in range(len(pickle_folder)):
-        temp = ocean_images + "weights/" + OUTPUT_FOLDER + "/" + pickle_folder[file]
+        temp = ocean_images + "weights/" + TEMP_FOLDER + "/" + pickle_folder[file]
         print("Deleting: " + temp)
         print(temp)
         os.remove(temp)
-    print("Removing: " + ocean_images + "weights/" + OUTPUT_FOLDER  + "/" +"metrics.json")
-    os.remove(ocean_images + "weights/" + OUTPUT_FOLDER  + "/" +"metrics.json")
-    print("Removing: " + ocean_images + "weights/" + OUTPUT_FOLDER  + "/" +"last_checkpoint")
-    os.remove(ocean_images + "weights/" + OUTPUT_FOLDER  + "/" + "last_checkpoint")
+    print("Removing: " + ocean_images + "weights/" + TEMP_FOLDER  + "/" +"metrics.json")
+    os.remove(ocean_images + "weights/" + TEMP_FOLDER  + "/" +"metrics.json")
+    print("Removing: " + ocean_images + "weights/" + TEMP_FOLDER  + "/" +"last_checkpoint")
+    os.remove(ocean_images + "weights/" + TEMP_FOLDER  + "/" + "last_checkpoint")
 
