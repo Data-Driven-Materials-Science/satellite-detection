@@ -45,7 +45,7 @@ LR = 0.01
 WD = 0.000005
 BB = 'ResNet50'
 #--------------------------------------------------------------
-for i in range(5):
+for loop_num in range(5):
     ##LOADING DATA
     json_path_train = Path('..', 'SALAS_Rep', 'satellite_training.json')  # path to training data
     json_path_val = Path('..', 'SALAS_Rep', 'satellite_validation.json')  # path to training data
@@ -248,7 +248,7 @@ for i in range(5):
         if iteration_name == 'final':
             print("Ignoring Final Model")
         else:
-            return_list = [i, str(sum(average_p[0])/len(average_p[0])), str(sum(average_r[0])/len(average_r[0]))]
+            return_list = [loop_num, str(sum(average_p[0])/len(average_p[0])), str(sum(average_r[0])/len(average_r[0]))]
             with open(OUTPUT_FILE, "a") as output:
                 output.write(str(return_list))
             f = open(OUTPUT_FILE, "a")
@@ -257,7 +257,16 @@ for i in range(5):
     for model in range(len(model_checkpoints)):
         print("Deleting: " + str(model_checkpoints[-model]))
         print(str(model_checkpoints[-model]))
-        os.rename(str(model_checkpoints[-model]))
+        temp_list_split = str(model_checkpoints[-model]).split("/")
+        for i in range(4):
+            temp_list_split.pop()
+        temp_list_split.append("variance/RNG-ELIM/trial1/model" + str(i) + ".pth")
+        file_output_name = ''
+        for i in range(len(temp_list_split) - 1):
+            file_output_name += temp_list_split[i]
+            if i != len(temp_list_split) - 1:
+                file_output_name += '/'
+        os.rename(str(model_checkpoints[-model]), file_output_name)
     for file in range(len(pickle_folder)):
         temp = ocean_images + "weights/" + OUTPUT_FOLDER + "/" + pickle_folder[file]
         print("Deleting: " + temp)
