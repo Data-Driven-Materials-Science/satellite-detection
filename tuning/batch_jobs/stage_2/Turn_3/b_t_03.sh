@@ -4,6 +4,6 @@
 #SBATCH -t 10:00:00
 #SBATCH --gres=gpu:1
 
-python3 train_powder_LR-0_03_T2.py
+python3 train_powder_LR-0_03_T3.py
 
 ./gpua.out
