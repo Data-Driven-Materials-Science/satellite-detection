@@ -3,6 +3,6 @@
 #SBATCH -p GPU-small
 #SBATCH -t 8:00:00
 #SBATCH --gpus=1
-python3 noConfig-2c.py
+CUBLAS_WORKSPACE_CONFIG=:16:8 python3 noConfig-2b.py
 
 ./gpua.out
