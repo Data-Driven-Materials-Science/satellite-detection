@@ -39,9 +39,9 @@ from ampis.visualize import display_iset
 #CONSTANTS
 #--------------------------------------------------------------
 EXPERIMENT_NAME = 'satellite'                       # can be 'particle' or 'satellite'
-NUM_ITERATIONS = 10000                              # The total number of training iterations
-CHECKPOINT_NUM = 10000                              # This is the number of iterations before a checkpoint is stored
-NUM_MODELS = 13                                     # This is the number of models that will be trained from scratch
+NUM_ITERATIONS = 5000                              # The total number of training iterations
+CHECKPOINT_NUM = 2000                              # This is the number of iterations before a checkpoint is stored
+NUM_MODELS = 10                                     # This is the number of models that will be trained from scratch
 OFFSET = 0                                          # This is used if trainings are split into A and B, if A, = 0, if B, = NUM_MODELS
 TEMP_FOLDER = 'batch_temp10'                         # The file that model weights will be stored after training before being analyzed
 OUTPUT_FILE = '../NO_CONFIG_OUTPUT-2.txt'           # This is the file that stores precision scores

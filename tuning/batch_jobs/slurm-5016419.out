@@ -29,7 +29,7 @@ ddict info:
 	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_250x.png
 	num_instances: 49
 Weights not found, weights will be downloaded from source: https://dl.fbaipublicfiles.com/detectron2/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl
-[32m[10/30 17:19:43 d2.engine.defaults]: [0mModel:
+[32m[11/13 17:58:13 d2.engine.defaults]: [0mModel:
 GeneralizedRCNN(
   (backbone): FPN(
     (fpn_lateral2): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
@@ -359,19 +359,19 @@ GeneralizedRCNN(
     )
   )
 )
-[32m[10/30 17:19:43 d2.data.build]: [0mRemoved 0 images with no usable annotations. 20 images left.
-[32m[10/30 17:19:43 d2.data.build]: [0mDistribution of instances among all 1 categories:
+[32m[11/13 17:58:14 d2.data.build]: [0mRemoved 0 images with no usable annotations. 20 images left.
+[32m[11/13 17:58:14 d2.data.build]: [0mDistribution of instances among all 1 categories:
 [36m|  category  | #instances   |
 |:----------:|:-------------|
 | satellite  | 1412         |
 |            |              |[0m
-[32m[10/30 17:19:43 d2.data.dataset_mapper]: [0m[DatasetMapper] Augmentations used in training: [ResizeShortestEdge(short_edge_length=(640, 672, 704, 736, 768, 800), max_size=1333, sample_style='choice')]
-[32m[10/30 17:19:43 d2.data.build]: [0mUsing training sampler TrainingSampler
-[32m[10/30 17:19:43 d2.data.common]: [0mSerializing 20 elements to byte tensors and concatenating them all ...
-[32m[10/30 17:19:43 d2.data.common]: [0mSerialized dataset takes 0.46 MiB
-[5m[31mWARNING[0m [32m[10/30 17:19:43 d2.solver.build]: [0mSOLVER.STEPS contains values larger than SOLVER.MAX_ITER. These values will be ignored.
-[32m[10/30 17:19:44 d2.checkpoint.c2_model_loading]: [0mRenaming Caffe2 weights ......
-[32m[10/30 17:19:44 d2.checkpoint.c2_model_loading]: [0mFollowing weights matched with submodule backbone.bottom_up:
+[32m[11/13 17:58:14 d2.data.dataset_mapper]: [0m[DatasetMapper] Augmentations used in training: [ResizeShortestEdge(short_edge_length=(640, 672, 704, 736, 768, 800), max_size=1333, sample_style='choice')]
+[32m[11/13 17:58:14 d2.data.build]: [0mUsing training sampler TrainingSampler
+[32m[11/13 17:58:14 d2.data.common]: [0mSerializing 20 elements to byte tensors and concatenating them all ...
+[32m[11/13 17:58:14 d2.data.common]: [0mSerialized dataset takes 0.46 MiB
+[5m[31mWARNING[0m [32m[11/13 17:58:14 d2.solver.build]: [0mSOLVER.STEPS contains values larger than SOLVER.MAX_ITER. These values will be ignored.
+[32m[11/13 17:58:14 d2.checkpoint.c2_model_loading]: [0mRenaming Caffe2 weights ......
+[32m[11/13 17:58:14 d2.checkpoint.c2_model_loading]: [0mFollowing weights matched with submodule backbone.bottom_up:
 | Names in Model    | Names in Checkpoint      | Shapes                                          |
 |:------------------|:-------------------------|:------------------------------------------------|
 | res2.0.conv1.*    | res2_0_branch2a_{bn_*,w} | (64,) (64,) (64,) (64,) (64,64,1,1)             |
@@ -428,30 +428,28 @@ GeneralizedRCNN(
 | res5.2.conv3.*    | res5_2_branch2c_{bn_*,w} | (2048,) (2048,) (2048,) (2048,) (2048,512,1,1)  |
 | stem.conv1.norm.* | res_conv1_bn_*           | (64,) (64,) (64,) (64,)                         |
 | stem.conv1.weight | conv1_w                  | (64, 3, 7, 7)                                   |
-[32m[10/30 17:19:44 d2.engine.train_loop]: [0mStarting training from iteration 0
-/jet/home/sprice/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py:474: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
-  warnings.warn(_create_warning_msg(
-[32m[10/30 17:19:50 d2.utils.events]: [0m eta: 0:00:14  iter: 19  total_loss: 2.826  loss_cls: 0.5453  loss_box_reg: 0.04373  loss_mask: 0.6564  loss_rpn_cls: 0.6749  loss_rpn_loc: 1.056  time: 0.1839  data_time: 0.1042  lr: 0.00039962  max_mem: 1795M
-[32m[10/30 17:19:53 d2.utils.events]: [0m eta: 0:00:10  iter: 39  total_loss: 2.196  loss_cls: 0.2331  loss_box_reg: 0.03322  loss_mask: 0.5926  loss_rpn_cls: 0.5902  loss_rpn_loc: 0.6532  time: 0.1845  data_time: 0.0117  lr: 0.00079922  max_mem: 1795M
-[32m[10/30 17:19:58 d2.utils.events]: [0m eta: 0:00:07  iter: 59  total_loss: 2.109  loss_cls: 0.2357  loss_box_reg: 0.238  loss_mask: 0.5613  loss_rpn_cls: 0.5733  loss_rpn_loc: 0.5192  time: 0.1853  data_time: 0.0133  lr: 0.0011988  max_mem: 1795M
-[32m[10/30 17:20:02 d2.utils.events]: [0m eta: 0:00:03  iter: 79  total_loss: 2.309  loss_cls: 0.3279  loss_box_reg: 0.4638  loss_mask: 0.5394  loss_rpn_cls: 0.4586  loss_rpn_loc: 0.499  time: 0.1880  data_time: 0.0144  lr: 0.0015984  max_mem: 1795M
-[32m[10/30 17:20:06 d2.utils.events]: [0m eta: 0:00:00  iter: 99  total_loss: 2.07  loss_cls: 0.2725  loss_box_reg: 0.3737  loss_mask: 0.4906  loss_rpn_cls: 0.376  loss_rpn_loc: 0.5443  time: 0.1877  data_time: 0.0135  lr: 0.001998  max_mem: 1795M
-[32m[10/30 17:20:06 d2.engine.hooks]: [0mOverall training speed: 98 iterations in 0:00:18 (0.1877 s / it)
-[32m[10/30 17:20:06 d2.engine.hooks]: [0mTotal training time: 0:00:20 (0:00:01 on hooks)
-[32m[10/30 17:20:07 d2.data.dataset_mapper]: [0m[DatasetMapper] Augmentations used in inference: [ResizeShortestEdge(short_edge_length=(800, 800), max_size=1333, sample_style='choice')]
-[32m[10/30 17:20:07 d2.data.common]: [0mSerializing 20 elements to byte tensors and concatenating them all ...
-[32m[10/30 17:20:07 d2.data.common]: [0mSerialized dataset takes 0.46 MiB
-[5m[31mWARNING[0m [32m[10/30 17:20:07 d2.engine.defaults]: [0mNo evaluator found. Use `DefaultTrainer.test(evaluators=)`, or implement its `build_evaluator` method.
-[32m[10/30 17:20:07 d2.data.build]: [0mDistribution of instances among all 1 categories:
+[32m[11/13 17:58:14 d2.engine.train_loop]: [0mStarting training from iteration 0
+[32m[11/13 17:59:33 d2.utils.events]: [0m eta: 0:04:53  iter: 19  total_loss: 2.828  loss_cls: 0.5446  loss_box_reg: 0.04605  loss_mask: 0.6565  loss_rpn_cls: 0.676  loss_rpn_loc: 1.086  time: 3.8860  data_time: 0.0245  lr: 0.00039962  max_mem: 0M
+[32m[11/13 18:00:52 d2.utils.events]: [0m eta: 0:03:47  iter: 39  total_loss: 2.208  loss_cls: 0.248  loss_box_reg: 0.03956  loss_mask: 0.5946  loss_rpn_cls: 0.5909  loss_rpn_loc: 0.6644  time: 3.9097  data_time: 0.0130  lr: 0.00079922  max_mem: 0M
+[32m[11/13 18:02:11 d2.utils.events]: [0m eta: 0:02:32  iter: 59  total_loss: 2.077  loss_cls: 0.2359  loss_box_reg: 0.1424  loss_mask: 0.5575  loss_rpn_cls: 0.5604  loss_rpn_loc: 0.5375  time: 3.9189  data_time: 0.0108  lr: 0.0011988  max_mem: 0M
+[32m[11/13 18:03:35 d2.utils.events]: [0m eta: 0:01:17  iter: 79  total_loss: 2.277  loss_cls: 0.3216  loss_box_reg: 0.4317  loss_mask: 0.5372  loss_rpn_cls: 0.4435  loss_rpn_loc: 0.5194  time: 3.9970  data_time: 0.0104  lr: 0.0015984  max_mem: 0M
+[32m[11/13 18:04:52 d2.utils.events]: [0m eta: 0:00:00  iter: 99  total_loss: 2.028  loss_cls: 0.2917  loss_box_reg: 0.3306  loss_mask: 0.4977  loss_rpn_cls: 0.4309  loss_rpn_loc: 0.5222  time: 3.9606  data_time: 0.0062  lr: 0.001998  max_mem: 0M
+[32m[11/13 18:04:52 d2.engine.hooks]: [0mOverall training speed: 98 iterations in 0:06:28 (3.9606 s / it)
+[32m[11/13 18:04:52 d2.engine.hooks]: [0mTotal training time: 0:06:29 (0:00:01 on hooks)
+[32m[11/13 18:04:53 d2.data.dataset_mapper]: [0m[DatasetMapper] Augmentations used in inference: [ResizeShortestEdge(short_edge_length=(800, 800), max_size=1333, sample_style='choice')]
+[32m[11/13 18:04:53 d2.data.common]: [0mSerializing 20 elements to byte tensors and concatenating them all ...
+[32m[11/13 18:04:53 d2.data.common]: [0mSerialized dataset takes 0.46 MiB
+[5m[31mWARNING[0m [32m[11/13 18:04:53 d2.engine.defaults]: [0mNo evaluator found. Use `DefaultTrainer.test(evaluators=)`, or implement its `build_evaluator` method.
+[32m[11/13 18:04:53 d2.data.build]: [0mDistribution of instances among all 1 categories:
 [36m|  category  | #instances   |
 |:----------:|:-------------|
 | satellite  | 445          |
 |            |              |[0m
-[32m[10/30 17:20:07 d2.data.dataset_mapper]: [0m[DatasetMapper] Augmentations used in inference: [ResizeShortestEdge(short_edge_length=(800, 800), max_size=1333, sample_style='choice')]
-[32m[10/30 17:20:07 d2.data.common]: [0mSerializing 6 elements to byte tensors and concatenating them all ...
-[32m[10/30 17:20:07 d2.data.common]: [0mSerialized dataset takes 0.11 MiB
-[5m[31mWARNING[0m [32m[10/30 17:20:07 d2.engine.defaults]: [0mNo evaluator found. Use `DefaultTrainer.test(evaluators=)`, or implement its `build_evaluator` method.
-USING MODEL WEIGHT: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/model_0000049.pth
+[32m[11/13 18:04:53 d2.data.dataset_mapper]: [0m[DatasetMapper] Augmentations used in inference: [ResizeShortestEdge(short_edge_length=(800, 800), max_size=1333, sample_style='choice')]
+[32m[11/13 18:04:53 d2.data.common]: [0mSerializing 6 elements to byte tensors and concatenating them all ...
+[32m[11/13 18:04:53 d2.data.common]: [0mSerialized dataset takes 0.11 MiB
+[5m[31mWARNING[0m [32m[11/13 18:04:53 d2.engine.defaults]: [0mNo evaluator found. Use `DefaultTrainer.test(evaluators=)`, or implement its `build_evaluator` method.
+USING MODEL WEIGHT: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1000/model_0000099.pth
 Dataset: satellite_Val
 	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S08_03_SE1_1000X03.png
 ddict info:
@@ -476,7 +474,7 @@ ddict info:
 	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_250x.png
 ddict info:
 	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_250x.png
-	num_instances: 120
+	num_instances: 188
 gt filename: S08_03_SE1_1000X03.png	 pred filename: S08_03_SE1_1000X03.png
 gt filename: S06_01_SE1_500X67.png	 pred filename: S06_01_SE1_500X67.png
 gt filename: S04_02_SE1_1000X50.png	 pred filename: S04_02_SE1_1000X50.png
@@ -484,28 +482,28 @@ gt filename: S03_03_SE1_1250X41.png	 pred filename: S03_03_SE1_1250X41.png
 gt filename: S02_01_SE1_300X14.png	 pred filename: S02_01_SE1_300X14.png
 gt filename: HP743_2S_250x.png	 pred filename: HP743_2S_250x.png
 x:  [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2]
-y:  [0.04, 0.01, 0.02, 0.05, 0.02, 0.02, 0.11, 0.06, 0.13, 0.11, 0.06, 0.06]
-Average Precision Score:  0.028833333333333336
-Average Recall Score:     0.08884705670419957
-Precision: 0.0023368679715916525
-Recall: 0.009662761021437156
+y:  [0.02, 0.02, 0.02, 0.02, 0.01, 0.01, 0.06, 0.09, 0.11, 0.05, 0.02, 0.04]
+Average Precision Score:  0.016439716312056738
+Average Recall Score:     0.06113190339380815
+Precision: 0.00012267959608598325
+Recall: 0.0002295599080479954
 ---
-Precision: 0.000665304294417941
-Recall: 0.02456735229199322
+Precision: 7.948981681699011e-05
+Recall: 0.00040364921877356714
 ---
-Precision: 0.0007616765346835647
-Recall: 0.002630283639943395
+Precision: 0.0001009739228267842
+Recall: 0.000254453055960805
 ---
-Precision: 0.004022576690450074
-Recall: 0.00835287273240132
+Precision: 8.307703784582937e-05
+Recall: 0.00011873027147693881
 ---
-Precision: 0.0012491081513407371
-Recall: 0.002316314879960501
+Precision: 3.033761244281037e-05
+Recall: 4.328165830757665e-05
 ---
-Precision: 0.0017817557950563236
-Recall: 0.002472068522649362
+Precision: 3.940275754708145e-05
+Recall: 8.711591343534464e-05
 ---
-USING MODEL WEIGHT: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/model_final.pth
+USING MODEL WEIGHT: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1000/model_final.pth
 Dataset: satellite_Val
 	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S08_03_SE1_1000X03.png
 ddict info:
@@ -514,7 +512,7 @@ ddict info:
 	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S06_01_SE1_500X67.png
 ddict info:
 	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S06_01_SE1_500X67.png
-	num_instances: 231
+	num_instances: 250
 	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S04_02_SE1_1000X50.png
 ddict info:
 	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S04_02_SE1_1000X50.png
@@ -530,7 +528,7 @@ ddict info:
 	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_250x.png
 ddict info:
 	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_250x.png
-	num_instances: 155
+	num_instances: 188
 gt filename: S08_03_SE1_1000X03.png	 pred filename: S08_03_SE1_1000X03.png
 gt filename: S06_01_SE1_500X67.png	 pred filename: S06_01_SE1_500X67.png
 gt filename: S04_02_SE1_1000X50.png	 pred filename: S04_02_SE1_1000X50.png
@@ -538,88 +536,32 @@ gt filename: S03_03_SE1_1250X41.png	 pred filename: S03_03_SE1_1250X41.png
 gt filename: S02_01_SE1_300X14.png	 pred filename: S02_01_SE1_300X14.png
 gt filename: HP743_2S_250x.png	 pred filename: HP743_2S_250x.png
 x:  [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2]
-y:  [0.03, 0.01, 0.02, 0.04, 0.04, 0.01, 0.08, 0.06, 0.13, 0.08, 0.09, 0.04]
-Average Precision Score:  0.024981706465577434
-Average Recall Score:     0.08036141428998572
-Precision: 0.00028104554131499213
-Recall: 0.0006259261742328792
+y:  [0.02, 0.02, 0.02, 0.02, 0.01, 0.01, 0.06, 0.09, 0.11, 0.05, 0.02, 0.04]
+Average Precision Score:  0.016439716312056738
+Average Recall Score:     0.06113190339380815
+Precision: 0.00012267959608598325
+Recall: 0.0002295599080479954
 ---
-Precision: 6.937902372830631e-05
-Recall: 0.000322338025142366
+Precision: 7.948981681699011e-05
+Recall: 0.00040364921877356714
 ---
-Precision: 0.00011630824819694628
-Recall: 0.0003504790989428433
+Precision: 0.0001009739228267842
+Recall: 0.000254453055960805
 ---
-Precision: 0.00026954767400807735
-Recall: 0.0008444097229019221
+Precision: 8.307703784582937e-05
+Recall: 0.00011873027147693881
 ---
-Precision: 0.00017808046221773306
-Recall: 0.00033478406427854036
+Precision: 3.033761244281037e-05
+Recall: 4.328165830757665e-05
 ---
-Precision: 7.091140084544211e-05
-Recall: 9.972937311995772e-05
+Precision: 3.940275754708145e-05
+Recall: 8.711591343534464e-05
 ---
 Ignoring Final Model
-USING MODEL WEIGHT: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/model_0000099.pth
-Dataset: satellite_Val
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S08_03_SE1_1000X03.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S08_03_SE1_1000X03.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S06_01_SE1_500X67.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S06_01_SE1_500X67.png
-	num_instances: 231
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S04_02_SE1_1000X50.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S04_02_SE1_1000X50.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S03_03_SE1_1250X41.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S03_03_SE1_1250X41.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S02_01_SE1_300X14.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S02_01_SE1_300X14.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_250x.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_250x.png
-	num_instances: 155
-gt filename: S08_03_SE1_1000X03.png	 pred filename: S08_03_SE1_1000X03.png
-gt filename: S06_01_SE1_500X67.png	 pred filename: S06_01_SE1_500X67.png
-gt filename: S04_02_SE1_1000X50.png	 pred filename: S04_02_SE1_1000X50.png
-gt filename: S03_03_SE1_1250X41.png	 pred filename: S03_03_SE1_1250X41.png
-gt filename: S02_01_SE1_300X14.png	 pred filename: S02_01_SE1_300X14.png
-gt filename: HP743_2S_250x.png	 pred filename: HP743_2S_250x.png
-x:  [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2]
-y:  [0.03, 0.01, 0.02, 0.04, 0.04, 0.01, 0.08, 0.06, 0.13, 0.08, 0.09, 0.04]
-Average Precision Score:  0.024981706465577434
-Average Recall Score:     0.08036141428998572
-Precision: 0.00028104554131499213
-Recall: 0.0006259261742328792
----
-Precision: 6.937902372830631e-05
-Recall: 0.000322338025142366
----
-Precision: 0.00011630824819694628
-Recall: 0.0003504790989428433
----
-Precision: 0.00026954767400807735
-Recall: 0.0008444097229019221
----
-Precision: 0.00017808046221773306
-Recall: 0.00033478406427854036
----
-Precision: 7.091140084544211e-05
-Recall: 9.972937311995772e-05
----
-Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/model_0000049.pth
-Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/model_final.pth
-Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/model_0000099.pth
-Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/results_checkpoint_0000049.pickle
-Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/results_checkpoint_final.pickle
-Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/results_checkpoint_0000099.pickle
-Removing: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/metrics.json
-Removing: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/last_checkpoint
-/var/spool/slurm/d/job4831382/slurm_script: line 8: ./gpua.out: No such file or directory
+Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1000/model_0000099.pth
+Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1000/model_final.pth
+Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1000/results_checkpoint_0000099.pickle
+Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1000/results_checkpoint_final.pickle
+Removing: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1000/metrics.json
+Removing: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1000/last_checkpoint
+/var/spool/slurm/d/job5016419/slurm_script: line 8: ./gpua.out: No such file or directory
