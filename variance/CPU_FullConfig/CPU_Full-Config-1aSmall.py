@@ -14,7 +14,6 @@ import pycocotools.mask as RLE
 import seaborn as sns
 import random
 import torch
-from datetime import datetime
 
 
 ## detectron2
@@ -39,19 +38,26 @@ from ampis.visualize import display_iset
 #CONSTANTS
 #--------------------------------------------------------------
 EXPERIMENT_NAME = 'satellite'                       # can be 'particle' or 'satellite'
-NUM_ITERATIONS = 5000                              # The total number of training iterations
-CHECKPOINT_NUM = 2000                              # This is the number of iterations before a checkpoint is stored
-NUM_MODELS = 10                                     # This is the number of models that will be trained from scratch
+NUM_ITERATIONS = 3000                               # The total number of training iterations
+CHECKPOINT_NUM = 3000                               # This is the number of iterations before a checkpoint is stored
+NUM_MODELS = 1                                      # This is the number of models that will be trained from scratch
 OFFSET = 0                                          # This is used if trainings are split into A and B, if A, = 0, if B, = NUM_MODELS
-TEMP_FOLDER = 'batch_temp10'                         # The file that model weights will be stored after training before being analyzed
-OUTPUT_FILE = '../NO_CONFIG_OUTPUT-2.txt'           # This is the file that stores precision scores
+TEMP_FOLDER = 'batch_temp1'                         # The file that model weights will be stored after training before being analyzed
+OUTPUT_FILE = '../CPU_FULL_CONFIG_Output-0.txt'     # This is the file that stores precision scores
 LR = 0.01                                           # Learning Rate that is used
 WD = 0.000005                                       # Weight Decay used
 BB = 'ResNet50'                                     # Backbone structure, although not currently configured to work
 SEED = 42                                           # Numerican Value RNG's are set to
-FINAL_MODEL_FOLDER = '../../../../../../../ocean/projects/dmr200021p/sprice/variance/NO_CONFIG2/trial1/'
+FINAL_MODEL_FOLDER = '../../../../../../../ocean/projects/dmr200021p/sprice/variance/CPU_FULL_CONFIG/trial1/'
 #--------------------------------------------------------------
 for loop_num in range(NUM_MODELS):
+    random.seed(SEED)
+    np.random.seed(SEED)
+    #https://pytorch.org/docs/stable/notes/randomness.html
+    torch.manual_seed(SEED)
+    torch.backends.cudnn.benchmark = False
+    torch.use_deterministic_algorithms(True)
+    #https://discuss.pytorch.org/t/random-seed-with-external-gpu/102260/4
 
     ##LOADING DATA
     json_path_train = Path('..', 'SALAS_Rep', 'satellite_training.json')  # path to training data
@@ -101,12 +107,16 @@ for loop_num in range(NUM_MODELS):
     cfg.DATASETS.TEST = (dataset_train, dataset_valid)  # we will look at the predictions on both sets after training
     cfg.SOLVER.IMS_PER_BATCH = 1 # number of images per batch (across all machines)
     cfg.SOLVER.CHECKPOINT_PERIOD = CHECKPOINT_NUM  # number of iterations after which to save model checkpoints
-    cfg.MODEL.DEVICE='cuda'  # 'cpu' to force model to run on cpu, 'cuda' if you have a compatible gpu
+    cfg.MODEL.DEVICE='cpu'  # 'cpu' to force model to run on cpu, 'cuda' if you have a compatible gpu
     cfg.MODEL.ROI_HEADS.NUM_CLASSES = 1 # Since we are training separate models for particles and satellites there is only one class output
     cfg.TEST.DETECTIONS_PER_IMAGE = 400 if EXPERIMENT_NAME == 'particle' else 250  # maximum number of instances that can be detected in an image (this is fixed in mask r-cnn)
     cfg.SOLVER.MAX_ITER = NUM_ITERATIONS  # maximum number of iterations to run during training
                                 # Increasing this may improve the training results, but will take longer to run (especially without a gpu!)
     #-------------------------------------------------
+    # TURNING OFF RANDOM DATA AUGMENTATION
+    cfg.INPUT.RANDOM_FLIP = "none"
+    # SETTING A SPECIFIC CNN SEED
+    cfg.SEED = SEED
     #-------------------------------------------------
     cfg.SOLVER.BASE_LR = LR
     cfg.SOLVER.WEIGHT_DECAY = WD
@@ -128,9 +138,7 @@ for loop_num in range(NUM_MODELS):
     #MODEL TRAINING
     trainer = DefaultTrainer(cfg)  # create trainer object from cfg
     trainer.resume_or_load(resume=False)  # start training from iteration 0
-    time1 = datetime.now().time()
     trainer.train()  # train the model!
-    time2 = datetime.now().time()
 
 
     pickle_folder = []
@@ -257,7 +265,7 @@ for loop_num in range(NUM_MODELS):
         if iteration_name == 'final':
             print("Ignoring Final Model")
         else:
-            return_list = [loop_num+OFFSET, str(sum(average_p[0])/len(average_p[0])), str(sum(average_r[0])/len(average_r[0])), str(time1), str(time2)]
+            return_list = [loop_num+OFFSET, str(sum(average_p[0])/len(average_p[0])), str(sum(average_r[0])/len(average_r[0])), 'Small']
             with open(OUTPUT_FILE, "a") as output:
                 output.write(str(return_list))
             f = open(OUTPUT_FILE, "a")

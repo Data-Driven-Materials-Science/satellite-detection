@@ -51,9 +51,9 @@ torch.use_deterministic_algorithms(True)
 #--------------------------------------------------------------
 EXPERIMENT_NAME = 'satellite' # can be 'particle' or 'satellite'
 NUM_ITERATIONS = 100
-CHECKPOINT_NUM = 50
+CHECKPOINT_NUM = 100
 NUM_CYCLES = 2
-OUTPUT_FOLDER = 'batch_temp1'
+OUTPUT_FOLDER = 'batch_temp1000'
 LR = 0.001
 WD = 0.0001
 BB = 'ResNet50'
@@ -108,7 +108,7 @@ cfg.DATASETS.VALIDATION = (dataset_valid,)
 cfg.DATASETS.TEST = (dataset_train, dataset_valid)  # we will look at the predictions on both sets after training
 cfg.SOLVER.IMS_PER_BATCH = 1 # number of images per batch (across all machines)
 cfg.SOLVER.CHECKPOINT_PERIOD = CHECKPOINT_NUM  # number of iterations after which to save model checkpoints
-cfg.MODEL.DEVICE='cuda'  # 'cpu' to force model to run on cpu, 'cuda' if you have a compatible gpu
+cfg.MODEL.DEVICE='cpu'  # 'cpu' to force model to run on cpu, 'cuda' if you have a compatible gpu
 cfg.MODEL.ROI_HEADS.NUM_CLASSES = 1 # Since we are training separate models for particles and satellites there is only one class output
 cfg.TEST.DETECTIONS_PER_IMAGE = 400 if EXPERIMENT_NAME == 'particle' else 250  # maximum number of instances that can be detected in an image (this is fixed in mask r-cnn)
 cfg.SOLVER.MAX_ITER = NUM_ITERATIONS  # maximum number of iterations to run during training

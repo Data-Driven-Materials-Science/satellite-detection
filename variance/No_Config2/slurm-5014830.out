@@ -1,35 +1,33 @@
-[W Context.cpp:70] Warning: torch.use_deterministic_algorithms is in beta, and its design and functionality may change in the future. (function operator())
-Attempt 1 at Setting Deterministic Nature for CNN Training
 Registered Datasets: ['satellite_Train', 'satellite_Val']
 ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S04_01_SE1_1000X45.png
-	num_instances: 41
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S06_03_SE1_500X75.png
+	num_instances: 96
 ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_500x.png
-	num_instances: 47
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/HP743_4S_500x.png
+	num_instances: 103
 ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S04_03_SE1_1000X53.png
-	num_instances: 40
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S06_02_SE1_500X71.png
+	num_instances: 104
 ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S08_03_SE1_1000X03.png
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S08_03_SE1_1000X03.png
 	num_instances: 88
 ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S06_01_SE1_500X67.png
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S06_01_SE1_500X67.png
 	num_instances: 54
 ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S04_02_SE1_1000X50.png
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S04_02_SE1_1000X50.png
 	num_instances: 45
 ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S03_03_SE1_1250X41.png
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S03_03_SE1_1250X41.png
 	num_instances: 111
 ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S02_01_SE1_300X14.png
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S02_01_SE1_300X14.png
 	num_instances: 98
 ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_250x.png
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/HP743_2S_250x.png
 	num_instances: 49
 Weights not found, weights will be downloaded from source: https://dl.fbaipublicfiles.com/detectron2/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl
-[32m[10/30 17:19:43 d2.engine.defaults]: [0mModel:
+[32m[11/13 13:50:39 d2.engine.defaults]: [0mModel:
 GeneralizedRCNN(
   (backbone): FPN(
     (fpn_lateral2): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
@@ -359,19 +357,19 @@ GeneralizedRCNN(
     )
   )
 )
-[32m[10/30 17:19:43 d2.data.build]: [0mRemoved 0 images with no usable annotations. 20 images left.
-[32m[10/30 17:19:43 d2.data.build]: [0mDistribution of instances among all 1 categories:
+[32m[11/13 13:50:39 d2.data.build]: [0mRemoved 0 images with no usable annotations. 20 images left.
+[32m[11/13 13:50:39 d2.data.build]: [0mDistribution of instances among all 1 categories:
 [36m|  category  | #instances   |
 |:----------:|:-------------|
 | satellite  | 1412         |
 |            |              |[0m
-[32m[10/30 17:19:43 d2.data.dataset_mapper]: [0m[DatasetMapper] Augmentations used in training: [ResizeShortestEdge(short_edge_length=(640, 672, 704, 736, 768, 800), max_size=1333, sample_style='choice')]
-[32m[10/30 17:19:43 d2.data.build]: [0mUsing training sampler TrainingSampler
-[32m[10/30 17:19:43 d2.data.common]: [0mSerializing 20 elements to byte tensors and concatenating them all ...
-[32m[10/30 17:19:43 d2.data.common]: [0mSerialized dataset takes 0.46 MiB
-[5m[31mWARNING[0m [32m[10/30 17:19:43 d2.solver.build]: [0mSOLVER.STEPS contains values larger than SOLVER.MAX_ITER. These values will be ignored.
-[32m[10/30 17:19:44 d2.checkpoint.c2_model_loading]: [0mRenaming Caffe2 weights ......
-[32m[10/30 17:19:44 d2.checkpoint.c2_model_loading]: [0mFollowing weights matched with submodule backbone.bottom_up:
+[32m[11/13 13:50:39 d2.data.dataset_mapper]: [0m[DatasetMapper] Augmentations used in training: [ResizeShortestEdge(short_edge_length=(640, 672, 704, 736, 768, 800), max_size=1333, sample_style='choice'), RandomFlip()]
+[32m[11/13 13:50:39 d2.data.build]: [0mUsing training sampler TrainingSampler
+[32m[11/13 13:50:39 d2.data.common]: [0mSerializing 20 elements to byte tensors and concatenating them all ...
+[32m[11/13 13:50:39 d2.data.common]: [0mSerialized dataset takes 0.46 MiB
+[5m[31mWARNING[0m [32m[11/13 13:50:39 d2.solver.build]: [0mSOLVER.STEPS contains values larger than SOLVER.MAX_ITER. These values will be ignored.
+[32m[11/13 13:50:40 d2.checkpoint.c2_model_loading]: [0mRenaming Caffe2 weights ......
+[32m[11/13 13:50:40 d2.checkpoint.c2_model_loading]: [0mFollowing weights matched with submodule backbone.bottom_up:
 | Names in Model    | Names in Checkpoint      | Shapes                                          |
 |:------------------|:-------------------------|:------------------------------------------------|
 | res2.0.conv1.*    | res2_0_branch2a_{bn_*,w} | (64,) (64,) (64,) (64,) (64,64,1,1)             |
@@ -428,198 +426,57 @@ GeneralizedRCNN(
 | res5.2.conv3.*    | res5_2_branch2c_{bn_*,w} | (2048,) (2048,) (2048,) (2048,) (2048,512,1,1)  |
 | stem.conv1.norm.* | res_conv1_bn_*           | (64,) (64,) (64,) (64,)                         |
 | stem.conv1.weight | conv1_w                  | (64, 3, 7, 7)                                   |
-[32m[10/30 17:19:44 d2.engine.train_loop]: [0mStarting training from iteration 0
-/jet/home/sprice/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py:474: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
-  warnings.warn(_create_warning_msg(
-[32m[10/30 17:19:50 d2.utils.events]: [0m eta: 0:00:14  iter: 19  total_loss: 2.826  loss_cls: 0.5453  loss_box_reg: 0.04373  loss_mask: 0.6564  loss_rpn_cls: 0.6749  loss_rpn_loc: 1.056  time: 0.1839  data_time: 0.1042  lr: 0.00039962  max_mem: 1795M
-[32m[10/30 17:19:53 d2.utils.events]: [0m eta: 0:00:10  iter: 39  total_loss: 2.196  loss_cls: 0.2331  loss_box_reg: 0.03322  loss_mask: 0.5926  loss_rpn_cls: 0.5902  loss_rpn_loc: 0.6532  time: 0.1845  data_time: 0.0117  lr: 0.00079922  max_mem: 1795M
-[32m[10/30 17:19:58 d2.utils.events]: [0m eta: 0:00:07  iter: 59  total_loss: 2.109  loss_cls: 0.2357  loss_box_reg: 0.238  loss_mask: 0.5613  loss_rpn_cls: 0.5733  loss_rpn_loc: 0.5192  time: 0.1853  data_time: 0.0133  lr: 0.0011988  max_mem: 1795M
-[32m[10/30 17:20:02 d2.utils.events]: [0m eta: 0:00:03  iter: 79  total_loss: 2.309  loss_cls: 0.3279  loss_box_reg: 0.4638  loss_mask: 0.5394  loss_rpn_cls: 0.4586  loss_rpn_loc: 0.499  time: 0.1880  data_time: 0.0144  lr: 0.0015984  max_mem: 1795M
-[32m[10/30 17:20:06 d2.utils.events]: [0m eta: 0:00:00  iter: 99  total_loss: 2.07  loss_cls: 0.2725  loss_box_reg: 0.3737  loss_mask: 0.4906  loss_rpn_cls: 0.376  loss_rpn_loc: 0.5443  time: 0.1877  data_time: 0.0135  lr: 0.001998  max_mem: 1795M
-[32m[10/30 17:20:06 d2.engine.hooks]: [0mOverall training speed: 98 iterations in 0:00:18 (0.1877 s / it)
-[32m[10/30 17:20:06 d2.engine.hooks]: [0mTotal training time: 0:00:20 (0:00:01 on hooks)
-[32m[10/30 17:20:07 d2.data.dataset_mapper]: [0m[DatasetMapper] Augmentations used in inference: [ResizeShortestEdge(short_edge_length=(800, 800), max_size=1333, sample_style='choice')]
-[32m[10/30 17:20:07 d2.data.common]: [0mSerializing 20 elements to byte tensors and concatenating them all ...
-[32m[10/30 17:20:07 d2.data.common]: [0mSerialized dataset takes 0.46 MiB
-[5m[31mWARNING[0m [32m[10/30 17:20:07 d2.engine.defaults]: [0mNo evaluator found. Use `DefaultTrainer.test(evaluators=)`, or implement its `build_evaluator` method.
-[32m[10/30 17:20:07 d2.data.build]: [0mDistribution of instances among all 1 categories:
-[36m|  category  | #instances   |
-|:----------:|:-------------|
-| satellite  | 445          |
-|            |              |[0m
-[32m[10/30 17:20:07 d2.data.dataset_mapper]: [0m[DatasetMapper] Augmentations used in inference: [ResizeShortestEdge(short_edge_length=(800, 800), max_size=1333, sample_style='choice')]
-[32m[10/30 17:20:07 d2.data.common]: [0mSerializing 6 elements to byte tensors and concatenating them all ...
-[32m[10/30 17:20:07 d2.data.common]: [0mSerialized dataset takes 0.11 MiB
-[5m[31mWARNING[0m [32m[10/30 17:20:07 d2.engine.defaults]: [0mNo evaluator found. Use `DefaultTrainer.test(evaluators=)`, or implement its `build_evaluator` method.
-USING MODEL WEIGHT: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/model_0000049.pth
-Dataset: satellite_Val
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S08_03_SE1_1000X03.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S08_03_SE1_1000X03.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S06_01_SE1_500X67.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S06_01_SE1_500X67.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S04_02_SE1_1000X50.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S04_02_SE1_1000X50.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S03_03_SE1_1250X41.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S03_03_SE1_1250X41.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S02_01_SE1_300X14.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S02_01_SE1_300X14.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_250x.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_250x.png
-	num_instances: 120
-gt filename: S08_03_SE1_1000X03.png	 pred filename: S08_03_SE1_1000X03.png
-gt filename: S06_01_SE1_500X67.png	 pred filename: S06_01_SE1_500X67.png
-gt filename: S04_02_SE1_1000X50.png	 pred filename: S04_02_SE1_1000X50.png
-gt filename: S03_03_SE1_1250X41.png	 pred filename: S03_03_SE1_1250X41.png
-gt filename: S02_01_SE1_300X14.png	 pred filename: S02_01_SE1_300X14.png
-gt filename: HP743_2S_250x.png	 pred filename: HP743_2S_250x.png
-x:  [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2]
-y:  [0.04, 0.01, 0.02, 0.05, 0.02, 0.02, 0.11, 0.06, 0.13, 0.11, 0.06, 0.06]
-Average Precision Score:  0.028833333333333336
-Average Recall Score:     0.08884705670419957
-Precision: 0.0023368679715916525
-Recall: 0.009662761021437156
----
-Precision: 0.000665304294417941
-Recall: 0.02456735229199322
----
-Precision: 0.0007616765346835647
-Recall: 0.002630283639943395
----
-Precision: 0.004022576690450074
-Recall: 0.00835287273240132
----
-Precision: 0.0012491081513407371
-Recall: 0.002316314879960501
----
-Precision: 0.0017817557950563236
-Recall: 0.002472068522649362
----
-USING MODEL WEIGHT: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/model_final.pth
-Dataset: satellite_Val
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S08_03_SE1_1000X03.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S08_03_SE1_1000X03.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S06_01_SE1_500X67.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S06_01_SE1_500X67.png
-	num_instances: 231
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S04_02_SE1_1000X50.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S04_02_SE1_1000X50.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S03_03_SE1_1250X41.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S03_03_SE1_1250X41.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S02_01_SE1_300X14.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S02_01_SE1_300X14.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_250x.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_250x.png
-	num_instances: 155
-gt filename: S08_03_SE1_1000X03.png	 pred filename: S08_03_SE1_1000X03.png
-gt filename: S06_01_SE1_500X67.png	 pred filename: S06_01_SE1_500X67.png
-gt filename: S04_02_SE1_1000X50.png	 pred filename: S04_02_SE1_1000X50.png
-gt filename: S03_03_SE1_1250X41.png	 pred filename: S03_03_SE1_1250X41.png
-gt filename: S02_01_SE1_300X14.png	 pred filename: S02_01_SE1_300X14.png
-gt filename: HP743_2S_250x.png	 pred filename: HP743_2S_250x.png
-x:  [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2]
-y:  [0.03, 0.01, 0.02, 0.04, 0.04, 0.01, 0.08, 0.06, 0.13, 0.08, 0.09, 0.04]
-Average Precision Score:  0.024981706465577434
-Average Recall Score:     0.08036141428998572
-Precision: 0.00028104554131499213
-Recall: 0.0006259261742328792
----
-Precision: 6.937902372830631e-05
-Recall: 0.000322338025142366
----
-Precision: 0.00011630824819694628
-Recall: 0.0003504790989428433
----
-Precision: 0.00026954767400807735
-Recall: 0.0008444097229019221
----
-Precision: 0.00017808046221773306
-Recall: 0.00033478406427854036
----
-Precision: 7.091140084544211e-05
-Recall: 9.972937311995772e-05
----
-Ignoring Final Model
-USING MODEL WEIGHT: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/model_0000099.pth
-Dataset: satellite_Val
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S08_03_SE1_1000X03.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S08_03_SE1_1000X03.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S06_01_SE1_500X67.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S06_01_SE1_500X67.png
-	num_instances: 231
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S04_02_SE1_1000X50.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S04_02_SE1_1000X50.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S03_03_SE1_1250X41.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S03_03_SE1_1250X41.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S02_01_SE1_300X14.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/S02_01_SE1_300X14.png
-	num_instances: 250
-	File: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_250x.png
-ddict info:
-	path: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/images/HP743_2S_250x.png
-	num_instances: 155
-gt filename: S08_03_SE1_1000X03.png	 pred filename: S08_03_SE1_1000X03.png
-gt filename: S06_01_SE1_500X67.png	 pred filename: S06_01_SE1_500X67.png
-gt filename: S04_02_SE1_1000X50.png	 pred filename: S04_02_SE1_1000X50.png
-gt filename: S03_03_SE1_1250X41.png	 pred filename: S03_03_SE1_1250X41.png
-gt filename: S02_01_SE1_300X14.png	 pred filename: S02_01_SE1_300X14.png
-gt filename: HP743_2S_250x.png	 pred filename: HP743_2S_250x.png
-x:  [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2]
-y:  [0.03, 0.01, 0.02, 0.04, 0.04, 0.01, 0.08, 0.06, 0.13, 0.08, 0.09, 0.04]
-Average Precision Score:  0.024981706465577434
-Average Recall Score:     0.08036141428998572
-Precision: 0.00028104554131499213
-Recall: 0.0006259261742328792
----
-Precision: 6.937902372830631e-05
-Recall: 0.000322338025142366
----
-Precision: 0.00011630824819694628
-Recall: 0.0003504790989428433
----
-Precision: 0.00026954767400807735
-Recall: 0.0008444097229019221
----
-Precision: 0.00017808046221773306
-Recall: 0.00033478406427854036
----
-Precision: 7.091140084544211e-05
-Recall: 9.972937311995772e-05
----
-Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/model_0000049.pth
-Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/model_final.pth
-Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/model_0000099.pth
-Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/results_checkpoint_0000049.pickle
-Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/results_checkpoint_final.pickle
-Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/results_checkpoint_0000099.pickle
-Removing: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/metrics.json
-Removing: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp1/last_checkpoint
-/var/spool/slurm/d/job4831382/slurm_script: line 8: ./gpua.out: No such file or directory
+[32m[11/13 13:50:40 d2.engine.train_loop]: [0mStarting training from iteration 0
+[32m[11/13 13:50:43 d2.utils.events]: [0m eta: 0:17:26  iter: 19  total_loss: 3.251  loss_cls: 0.6221  loss_box_reg: 0.0485  loss_mask: 0.6801  loss_rpn_cls: 0.6693  loss_rpn_loc: 1.149  time: 0.1105  data_time: 0.0230  lr: 0.00019981  max_mem: 1823M
+[32m[11/13 13:50:45 d2.utils.events]: [0m eta: 0:17:21  iter: 39  total_loss: 2.426  loss_cls: 0.314  loss_box_reg: 0.05541  loss_mask: 0.6115  loss_rpn_cls: 0.597  loss_rpn_loc: 0.796  time: 0.1107  data_time: 0.0020  lr: 0.00039961  max_mem: 1823M
+[32m[11/13 13:50:47 d2.utils.events]: [0m eta: 0:17:19  iter: 59  total_loss: 2.134  loss_cls: 0.2417  loss_box_reg: 0.09908  loss_mask: 0.5816  loss_rpn_cls: 0.5701  loss_rpn_loc: 0.5982  time: 0.1096  data_time: 0.0019  lr: 0.00059941  max_mem: 1823M
+[32m[11/13 13:50:49 d2.utils.events]: [0m eta: 0:17:21  iter: 79  total_loss: 1.922  loss_cls: 0.1903  loss_box_reg: 0.1138  loss_mask: 0.548  loss_rpn_cls: 0.5285  loss_rpn_loc: 0.5666  time: 0.1087  data_time: 0.0019  lr: 0.00079921  max_mem: 1823M
+[32m[11/13 13:50:51 d2.utils.events]: [0m eta: 0:17:21  iter: 99  total_loss: 2.151  loss_cls: 0.2659  loss_box_reg: 0.2712  loss_mask: 0.5668  loss_rpn_cls: 0.4609  loss_rpn_loc: 0.5582  time: 0.1091  data_time: 0.0020  lr: 0.00099901  max_mem: 1823M
+[32m[11/13 13:50:54 d2.utils.events]: [0m eta: 0:17:22  iter: 119  total_loss: 2.058  loss_cls: 0.2663  loss_box_reg: 0.3102  loss_mask: 0.5277  loss_rpn_cls: 0.4304  loss_rpn_loc: 0.5045  time: 0.1094  data_time: 0.0018  lr: 0.0011988  max_mem: 1823M
+[32m[11/13 13:50:56 d2.utils.events]: [0m eta: 0:17:45  iter: 139  total_loss: 1.921  loss_cls: 0.2471  loss_box_reg: 0.2526  loss_mask: 0.4938  loss_rpn_cls: 0.3442  loss_rpn_loc: 0.5015  time: 0.1099  data_time: 0.0019  lr: 0.0013986  max_mem: 1823M
+[32m[11/13 13:50:58 d2.utils.events]: [0m eta: 0:17:49  iter: 159  total_loss: 1.943  loss_cls: 0.2724  loss_box_reg: 0.415  loss_mask: 0.4665  loss_rpn_cls: 0.2875  loss_rpn_loc: 0.4708  time: 0.1103  data_time: 0.0018  lr: 0.0015984  max_mem: 1823M
+[32m[11/13 13:51:01 d2.utils.events]: [0m eta: 0:17:48  iter: 179  total_loss: 1.966  loss_cls: 0.2802  loss_box_reg: 0.3592  loss_mask: 0.4467  loss_rpn_cls: 0.3408  loss_rpn_loc: 0.5508  time: 0.1107  data_time: 0.0020  lr: 0.0017982  max_mem: 1823M
+[32m[11/13 13:51:03 d2.utils.events]: [0m eta: 0:17:50  iter: 199  total_loss: 1.789  loss_cls: 0.2233  loss_box_reg: 0.3138  loss_mask: 0.4332  loss_rpn_cls: 0.2959  loss_rpn_loc: 0.4853  time: 0.1109  data_time: 0.0019  lr: 0.001998  max_mem: 1823M
+[32m[11/13 13:51:05 d2.utils.events]: [0m eta: 0:17:48  iter: 219  total_loss: 1.826  loss_cls: 0.2398  loss_box_reg: 0.3558  loss_mask: 0.4062  loss_rpn_cls: 0.2779  loss_rpn_loc: 0.5338  time: 0.1108  data_time: 0.0019  lr: 0.0021978  max_mem: 1823M
+[32m[11/13 13:51:07 d2.utils.events]: [0m eta: 0:17:49  iter: 239  total_loss: 1.771  loss_cls: 0.261  loss_box_reg: 0.3859  loss_mask: 0.3747  loss_rpn_cls: 0.2833  loss_rpn_loc: 0.4425  time: 0.1112  data_time: 0.0017  lr: 0.0023976  max_mem: 1823M
+[32m[11/13 13:51:10 d2.utils.events]: [0m eta: 0:17:50  iter: 259  total_loss: 1.738  loss_cls: 0.235  loss_box_reg: 0.3972  loss_mask: 0.3574  loss_rpn_cls: 0.2995  loss_rpn_loc: 0.4244  time: 0.1117  data_time: 0.0020  lr: 0.0025974  max_mem: 1823M
+[32m[11/13 13:51:12 d2.utils.events]: [0m eta: 0:17:44  iter: 279  total_loss: 1.844  loss_cls: 0.2395  loss_box_reg: 0.3892  loss_mask: 0.3584  loss_rpn_cls: 0.2505  loss_rpn_loc: 0.5159  time: 0.1115  data_time: 0.0018  lr: 0.0027972  max_mem: 1823M
+[32m[11/13 13:51:14 d2.utils.events]: [0m eta: 0:17:42  iter: 299  total_loss: 1.878  loss_cls: 0.2758  loss_box_reg: 0.5008  loss_mask: 0.3694  loss_rpn_cls: 0.2542  loss_rpn_loc: 0.4586  time: 0.1118  data_time: 0.0018  lr: 0.002997  max_mem: 1823M
+[32m[11/13 13:51:17 d2.utils.events]: [0m eta: 0:17:41  iter: 319  total_loss: 1.805  loss_cls: 0.2652  loss_box_reg: 0.511  loss_mask: 0.3305  loss_rpn_cls: 0.2842  loss_rpn_loc: 0.435  time: 0.1119  data_time: 0.0018  lr: 0.0031968  max_mem: 1823M
+[32m[11/13 13:51:19 d2.utils.events]: [0m eta: 0:17:41  iter: 339  total_loss: 1.694  loss_cls: 0.2427  loss_box_reg: 0.4722  loss_mask: 0.3252  loss_rpn_cls: 0.2643  loss_rpn_loc: 0.4144  time: 0.1120  data_time: 0.0019  lr: 0.0033966  max_mem: 1823M
+[32m[11/13 13:51:21 d2.utils.events]: [0m eta: 0:17:43  iter: 359  total_loss: 1.704  loss_cls: 0.2386  loss_box_reg: 0.4763  loss_mask: 0.3151  loss_rpn_cls: 0.213  loss_rpn_loc: 0.4244  time: 0.1123  data_time: 0.0021  lr: 0.0035964  max_mem: 1823M
+[32m[11/13 13:51:24 d2.utils.events]: [0m eta: 0:17:46  iter: 379  total_loss: 1.696  loss_cls: 0.2652  loss_box_reg: 0.4708  loss_mask: 0.3323  loss_rpn_cls: 0.204  loss_rpn_loc: 0.4424  time: 0.1126  data_time: 0.0022  lr: 0.0037962  max_mem: 1823M
+[32m[11/13 13:51:26 d2.utils.events]: [0m eta: 0:17:46  iter: 399  total_loss: 1.696  loss_cls: 0.2603  loss_box_reg: 0.481  loss_mask: 0.3099  loss_rpn_cls: 0.2883  loss_rpn_loc: 0.436  time: 0.1126  data_time: 0.0019  lr: 0.003996  max_mem: 1823M
+[32m[11/13 13:51:28 d2.utils.events]: [0m eta: 0:17:45  iter: 419  total_loss: 1.711  loss_cls: 0.2316  loss_box_reg: 0.4199  loss_mask: 0.3085  loss_rpn_cls: 0.2402  loss_rpn_loc: 0.4867  time: 0.1127  data_time: 0.0020  lr: 0.0041958  max_mem: 1823M
+[32m[11/13 13:51:31 d2.utils.events]: [0m eta: 0:17:47  iter: 439  total_loss: 1.584  loss_cls: 0.2309  loss_box_reg: 0.3967  loss_mask: 0.307  loss_rpn_cls: 0.1833  loss_rpn_loc: 0.4207  time: 0.1128  data_time: 0.0018  lr: 0.0043956  max_mem: 1823M
+[32m[11/13 13:51:33 d2.utils.events]: [0m eta: 0:17:47  iter: 459  total_loss: 1.64  loss_cls: 0.2699  loss_box_reg: 0.5186  loss_mask: 0.2881  loss_rpn_cls: 0.19  loss_rpn_loc: 0.3844  time: 0.1130  data_time: 0.0019  lr: 0.0045954  max_mem: 1823M
+[32m[11/13 13:51:35 d2.utils.events]: [0m eta: 0:17:45  iter: 479  total_loss: 1.641  loss_cls: 0.249  loss_box_reg: 0.4763  loss_mask: 0.2915  loss_rpn_cls: 0.1886  loss_rpn_loc: 0.4137  time: 0.1131  data_time: 0.0020  lr: 0.0047952  max_mem: 1823M
+[32m[11/13 13:51:37 d2.utils.events]: [0m eta: 0:17:42  iter: 499  total_loss: 1.694  loss_cls: 0.256  loss_box_reg: 0.4849  loss_mask: 0.2819  loss_rpn_cls: 0.2265  loss_rpn_loc: 0.4512  time: 0.1130  data_time: 0.0019  lr: 0.004995  max_mem: 1823M
+[32m[11/13 13:51:40 d2.utils.events]: [0m eta: 0:17:40  iter: 519  total_loss: 1.645  loss_cls: 0.2395  loss_box_reg: 0.4851  loss_mask: 0.2903  loss_rpn_cls: 0.1871  loss_rpn_loc: 0.431  time: 0.1132  data_time: 0.0054  lr: 0.0051948  max_mem: 1823M
+[32m[11/13 13:51:42 d2.utils.events]: [0m eta: 0:17:36  iter: 539  total_loss: 1.581  loss_cls: 0.2461  loss_box_reg: 0.4613  loss_mask: 0.2756  loss_rpn_cls: 0.1872  loss_rpn_loc: 0.4007  time: 0.1132  data_time: 0.0019  lr: 0.0053946  max_mem: 1823M
+[32m[11/13 13:51:45 d2.utils.events]: [0m eta: 0:17:36  iter: 559  total_loss: 1.534  loss_cls: 0.2413  loss_box_reg: 0.4639  loss_mask: 0.2704  loss_rpn_cls: 0.2094  loss_rpn_loc: 0.4208  time: 0.1135  data_time: 0.0020  lr: 0.0055944  max_mem: 1823M
+[32m[11/13 13:51:47 d2.utils.events]: [0m eta: 0:17:36  iter: 579  total_loss: 1.615  loss_cls: 0.2471  loss_box_reg: 0.4216  loss_mask: 0.273  loss_rpn_cls: 0.2213  loss_rpn_loc: 0.3967  time: 0.1136  data_time: 0.0021  lr: 0.0057942  max_mem: 1823M
+[32m[11/13 13:51:49 d2.utils.events]: [0m eta: 0:17:35  iter: 599  total_loss: 1.531  loss_cls: 0.207  loss_box_reg: 0.4153  loss_mask: 0.2549  loss_rpn_cls: 0.1825  loss_rpn_loc: 0.434  time: 0.1136  data_time: 0.0018  lr: 0.005994  max_mem: 1823M
+[32m[11/13 13:51:52 d2.utils.events]: [0m eta: 0:17:33  iter: 619  total_loss: 1.49  loss_cls: 0.2196  loss_box_reg: 0.4073  loss_mask: 0.2649  loss_rpn_cls: 0.1773  loss_rpn_loc: 0.4388  time: 0.1137  data_time: 0.0019  lr: 0.0061938  max_mem: 1823M
+[32m[11/13 13:51:54 d2.utils.events]: [0m eta: 0:17:36  iter: 639  total_loss: 1.582  loss_cls: 0.2598  loss_box_reg: 0.4714  loss_mask: 0.2594  loss_rpn_cls: 0.1923  loss_rpn_loc: 0.4028  time: 0.1139  data_time: 0.0018  lr: 0.0063936  max_mem: 1823M
+[32m[11/13 13:51:56 d2.utils.events]: [0m eta: 0:17:35  iter: 659  total_loss: 1.528  loss_cls: 0.2165  loss_box_reg: 0.4295  loss_mask: 0.2715  loss_rpn_cls: 0.208  loss_rpn_loc: 0.4208  time: 0.1139  data_time: 0.0019  lr: 0.0065934  max_mem: 1823M
+[32m[11/13 13:51:59 d2.utils.events]: [0m eta: 0:17:33  iter: 679  total_loss: 1.563  loss_cls: 0.2362  loss_box_reg: 0.4505  loss_mask: 0.2512  loss_rpn_cls: 0.1856  loss_rpn_loc: 0.4231  time: 0.1140  data_time: 0.0017  lr: 0.0067932  max_mem: 1823M
+[32m[11/13 13:52:01 d2.utils.events]: [0m eta: 0:17:33  iter: 699  total_loss: 1.53  loss_cls: 0.2435  loss_box_reg: 0.4745  loss_mask: 0.2608  loss_rpn_cls: 0.1909  loss_rpn_loc: 0.3753  time: 0.1140  data_time: 0.0019  lr: 0.006993  max_mem: 1823M
+[32m[11/13 13:52:03 d2.utils.events]: [0m eta: 0:17:33  iter: 719  total_loss: 1.575  loss_cls: 0.2603  loss_box_reg: 0.4941  loss_mask: 0.2644  loss_rpn_cls: 0.1747  loss_rpn_loc: 0.4159  time: 0.1141  data_time: 0.0019  lr: 0.0071928  max_mem: 1823M
+[32m[11/13 13:52:06 d2.utils.events]: [0m eta: 0:17:33  iter: 739  total_loss: 1.532  loss_cls: 0.247  loss_box_reg: 0.4694  loss_mask: 0.2413  loss_rpn_cls: 0.197  loss_rpn_loc: 0.394  time: 0.1143  data_time: 0.0018  lr: 0.0073926  max_mem: 1823M
+[32m[11/13 13:52:08 d2.utils.events]: [0m eta: 0:17:32  iter: 759  total_loss: 1.525  loss_cls: 0.2326  loss_box_reg: 0.4494  loss_mask: 0.2597  loss_rpn_cls: 0.1631  loss_rpn_loc: 0.3939  time: 0.1145  data_time: 0.0019  lr: 0.0075924  max_mem: 1823M
+[32m[11/13 13:52:11 d2.utils.events]: [0m eta: 0:17:33  iter: 779  total_loss: 1.485  loss_cls: 0.2128  loss_box_reg: 0.4572  loss_mask: 0.239  loss_rpn_cls: 0.1582  loss_rpn_loc: 0.3829  time: 0.1145  data_time: 0.0019  lr: 0.0077922  max_mem: 1823M
+[32m[11/13 13:52:13 d2.utils.events]: [0m eta: 0:17:31  iter: 799  total_loss: 1.445  loss_cls: 0.201  loss_box_reg: 0.4231  loss_mask: 0.2415  loss_rpn_cls: 0.1668  loss_rpn_loc: 0.4087  time: 0.1146  data_time: 0.0019  lr: 0.007992  max_mem: 1823M
+[32m[11/13 13:52:15 d2.utils.events]: [0m eta: 0:17:29  iter: 819  total_loss: 1.549  loss_cls: 0.2168  loss_box_reg: 0.425  loss_mask: 0.2583  loss_rpn_cls: 0.1678  loss_rpn_loc: 0.4091  time: 0.1146  data_time: 0.0023  lr: 0.0081918  max_mem: 1823M
+[32m[11/13 13:52:18 d2.utils.events]: [0m eta: 0:17:27  iter: 839  total_loss: 1.578  loss_cls: 0.2487  loss_box_reg: 0.4687  loss_mask: 0.2628  loss_rpn_cls: 0.2142  loss_rpn_loc: 0.4483  time: 0.1146  data_time: 0.0019  lr: 0.0083916  max_mem: 1823M
+[32m[11/13 13:52:20 d2.utils.events]: [0m eta: 0:17:27  iter: 859  total_loss: 1.509  loss_cls: 0.2229  loss_box_reg: 0.4295  loss_mask: 0.2489  loss_rpn_cls: 0.1943  loss_rpn_loc: 0.4328  time: 0.1147  data_time: 0.0019  lr: 0.0085914  max_mem: 1823M
+[32m[11/13 13:52:23 d2.utils.events]: [0m eta: 0:17:25  iter: 879  total_loss: 1.487  loss_cls: 0.222  loss_box_reg: 0.4443  loss_mask: 0.2514  loss_rpn_cls: 0.1755  loss_rpn_loc: 0.3906  time: 0.1148  data_time: 0.0019  lr: 0.0087912  max_mem: 1823M
+[32m[11/13 13:52:25 d2.utils.events]: [0m eta: 0:17:23  iter: 899  total_loss: 1.509  loss_cls: 0.2091  loss_box_reg: 0.4192  loss_mask: 0.2367  loss_rpn_cls: 0.1946  loss_rpn_loc: 0.4065  time: 0.1148  data_time: 0.0018  lr: 0.008991  max_mem: 1823M
+[32m[11/13 13:52:27 d2.utils.events]: [0m eta: 0:17:21  iter: 919  total_loss: 1.49  loss_cls: 0.2323  loss_box_reg: 0.4671  loss_mask: 0.2517  loss_rpn_cls: 0.1735  loss_rpn_loc: 0.3949  time: 0.1149  data_time: 0.0020  lr: 0.0091908  max_mem: 1823M
+[32m[11/13 13:52:30 d2.utils.events]: [0m eta: 0:17:19  iter: 939  total_loss: 1.559  loss_cls: 0.2462  loss_box_reg: 0.4723  loss_mask: 0.2478  loss_rpn_cls: 0.1522  loss_rpn_loc: 0.4022  time: 0.1150  data_time: 0.0021  lr: 0.0093906  max_mem: 1823M
+[32m[11/13 13:52:32 d2.utils.events]: [0m eta: 0:17:18  iter: 959  total_loss: 1.478  loss_cls: 0.237  loss_box_reg: 0.4768  loss_mask: 0.2399  loss_rpn_cls: 0.1448  loss_rpn_loc: 0.3811  time: 0.1153  data_time: 0.0025  lr: 0.0095904  max_mem: 1823M
+[32m[11/13 13:52:35 d2.utils.events]: [0m eta: 0:17:16  iter: 979  total_loss: 1.459  loss_cls: 0.2157  loss_box_reg: 0.4309  loss_mask: 0.236  loss_rpn_cls: 0.1553  loss_rpn_loc: 0.4253  time: 0.1153  data_time: 0.0021  lr: 0.0097902  max_mem: 1823M
+[32m[11/13 13:52:37 d2.utils.events]: [0m eta: 0:17:14  iter: 999  total_loss: 1.522  loss_cls: 0.2199  loss_box_reg: 0.4405  loss_mask: 0.2314  loss_rpn_cls: 0.2178  loss_rpn_loc: 0.3886  time: 0.1153  data_time: 0.0019  lr: 0.00999  max_mem: 1823M
+[32m[11/13 13:52:39 d2.utils.events]: [0m eta: 0:17:12  iter: 1019  total_loss: 1.539  loss_cls: 0.2441  loss_box_reg: 0.4576  loss_mask: 0.2397  loss_rpn_cls: 0.2013  loss_rpn_loc: 0.4062  time: 0.1152  data_time: 0.0020  lr: 0.01  max_mem: 1823M
+[32m[11/13 13:52:42 d2.utils.events]: [0m eta: 0:17:11  iter: 1039  total_loss: 1.453  loss_cls: 0.219  loss_box_reg: 0.454  loss_mask: 0.2303  loss_rpn_cls: 0.1652  loss_rpn_loc: 0.3653  time: 0.1153  data_time: 0.0022  lr: 0.01  max_mem: 1823M
+slurmstepd: error: *** JOB 5014830 ON v001 CANCELLED AT 2021-11-13T13:52:43 ***
