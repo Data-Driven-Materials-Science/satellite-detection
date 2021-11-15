@@ -3,6 +3,6 @@
 #SBATCH -p GPU-shared
 #SBATCH -t 8:00:00
 #SBATCH --gpus=1
-CUBLAS_WORKSPACE_CONFIG=:16:8 python3 noConfig-2d.py
+CUBLAS_WORKSPACE_CONFIG=:16:8 python3 fullConfig-2d.py
 
 ./gpua.out
