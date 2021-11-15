@@ -44,7 +44,7 @@ CHECKPOINT_NUM = 10000                              # This is the number of iter
 NUM_MODELS = 1                                      # This is the number of models that will be trained from scratch
 OFFSET = 0                                          # This is used if trainings are split into A and B, if A, = 0, if B, = NUM_MODELS
 TEMP_FOLDER = 'batch_temp10'                        # The file that model weights will be stored after training before being analyzed
-OUTPUT_FILE = '../CPU_FULL_CONFIG_Output-0.txt'     # This is the file that stores precision scores
+OUTPUT_FILE = '../CPU_FULL_CONFIG_Output-10.txt'     # This is the file that stores precision scores
 LR = 0.01                                           # Learning Rate that is used
 WD = 0.000005                                       # Weight Decay used
 BB = 'ResNet50'                                     # Backbone structure, although not currently configured to work
