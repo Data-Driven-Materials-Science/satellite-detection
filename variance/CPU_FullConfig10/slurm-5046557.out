@@ -919,3 +919,153 @@ GeneralizedRCNN(
 [32m[11/16 00:42:58 d2.utils.events]: [0m eta: 0:18:30  iter: 9779  total_loss: 0.4797  loss_cls: 0.04645  loss_box_reg: 0.1595  loss_mask: 0.08193  loss_rpn_cls: 0.02224  loss_rpn_loc: 0.1697  time: 4.8917  data_time: 0.0060  lr: 0.01  max_mem: 0M
 [32m[11/16 00:44:49 d2.utils.events]: [0m eta: 0:16:49  iter: 9799  total_loss: 0.4571  loss_cls: 0.04996  loss_box_reg: 0.155  loss_mask: 0.08555  loss_rpn_cls: 0.01717  loss_rpn_loc: 0.1584  time: 4.8931  data_time: 0.0080  lr: 0.01  max_mem: 0M
 [32m[11/16 00:46:39 d2.utils.events]: [0m eta: 0:15:07  iter: 9819  total_loss: 0.5085  loss_cls: 0.05544  loss_box_reg: 0.1717  loss_mask: 0.09029  loss_rpn_cls: 0.02153  loss_rpn_loc: 0.1546  time: 4.8943  data_time: 0.0128  lr: 0.01  max_mem: 0M
+[32m[11/16 00:48:39 d2.utils.events]: [0m eta: 0:13:26  iter: 9839  total_loss: 0.4586  loss_cls: 0.04883  loss_box_reg: 0.1534  loss_mask: 0.08649  loss_rpn_cls: 0.01994  loss_rpn_loc: 0.1499  time: 4.8965  data_time: 0.0109  lr: 0.01  max_mem: 0M
+[32m[11/16 00:50:08 d2.utils.events]: [0m eta: 0:11:41  iter: 9859  total_loss: 0.4792  loss_cls: 0.05445  loss_box_reg: 0.1531  loss_mask: 0.08552  loss_rpn_cls: 0.01859  loss_rpn_loc: 0.1567  time: 4.8956  data_time: 0.0037  lr: 0.01  max_mem: 0M
+[32m[11/16 00:51:39 d2.utils.events]: [0m eta: 0:10:01  iter: 9879  total_loss: 0.492  loss_cls: 0.05076  loss_box_reg: 0.1512  loss_mask: 0.08506  loss_rpn_cls: 0.02048  loss_rpn_loc: 0.16  time: 4.8948  data_time: 0.0102  lr: 0.01  max_mem: 0M
+[32m[11/16 00:53:18 d2.utils.events]: [0m eta: 0:08:21  iter: 9899  total_loss: 0.4735  loss_cls: 0.04839  loss_box_reg: 0.154  loss_mask: 0.08906  loss_rpn_cls: 0.02838  loss_rpn_loc: 0.153  time: 4.8950  data_time: 0.0079  lr: 0.01  max_mem: 0M
+[32m[11/16 00:55:02 d2.utils.events]: [0m eta: 0:06:41  iter: 9919  total_loss: 0.4435  loss_cls: 0.04956  loss_box_reg: 0.1518  loss_mask: 0.08352  loss_rpn_cls: 0.01668  loss_rpn_loc: 0.1365  time: 4.8956  data_time: 0.0089  lr: 0.01  max_mem: 0M
+[32m[11/16 00:56:39 d2.utils.events]: [0m eta: 0:05:00  iter: 9939  total_loss: 0.444  loss_cls: 0.04797  loss_box_reg: 0.1513  loss_mask: 0.08176  loss_rpn_cls: 0.01386  loss_rpn_loc: 0.1414  time: 4.8955  data_time: 0.0083  lr: 0.01  max_mem: 0M
+[32m[11/16 00:58:16 d2.utils.events]: [0m eta: 0:03:20  iter: 9959  total_loss: 0.4421  loss_cls: 0.04414  loss_box_reg: 0.1431  loss_mask: 0.08435  loss_rpn_cls: 0.01861  loss_rpn_loc: 0.1501  time: 4.8954  data_time: 0.0066  lr: 0.01  max_mem: 0M
+[32m[11/16 00:59:49 d2.utils.events]: [0m eta: 0:01:40  iter: 9979  total_loss: 0.4432  loss_cls: 0.04557  loss_box_reg: 0.1485  loss_mask: 0.07975  loss_rpn_cls: 0.01629  loss_rpn_loc: 0.1601  time: 4.8949  data_time: 0.0072  lr: 0.01  max_mem: 0M
+[32m[11/16 01:01:28 d2.utils.events]: [0m eta: 0:00:00  iter: 9999  total_loss: 0.4413  loss_cls: 0.04665  loss_box_reg: 0.1445  loss_mask: 0.07785  loss_rpn_cls: 0.01783  loss_rpn_loc: 0.1444  time: 4.8949  data_time: 0.0080  lr: 0.01  max_mem: 0M
+[32m[11/16 01:01:28 d2.engine.hooks]: [0mOverall training speed: 9998 iterations in 13:35:39 (4.8949 s / it)
+[32m[11/16 01:01:28 d2.engine.hooks]: [0mTotal training time: 13:36:33 (0:00:54 on hooks)
+[32m[11/16 01:01:29 d2.data.dataset_mapper]: [0m[DatasetMapper] Augmentations used in inference: [ResizeShortestEdge(short_edge_length=(800, 800), max_size=1333, sample_style='choice')]
+[32m[11/16 01:01:29 d2.data.common]: [0mSerializing 20 elements to byte tensors and concatenating them all ...
+[32m[11/16 01:01:29 d2.data.common]: [0mSerialized dataset takes 0.46 MiB
+[5m[31mWARNING[0m [32m[11/16 01:01:29 d2.engine.defaults]: [0mNo evaluator found. Use `DefaultTrainer.test(evaluators=)`, or implement its `build_evaluator` method.
+[32m[11/16 01:01:29 d2.data.build]: [0mDistribution of instances among all 1 categories:
+[36m|  category  | #instances   |
+|:----------:|:-------------|
+| satellite  | 445          |
+|            |              |[0m
+[32m[11/16 01:01:29 d2.data.dataset_mapper]: [0m[DatasetMapper] Augmentations used in inference: [ResizeShortestEdge(short_edge_length=(800, 800), max_size=1333, sample_style='choice')]
+[32m[11/16 01:01:29 d2.data.common]: [0mSerializing 6 elements to byte tensors and concatenating them all ...
+[32m[11/16 01:01:29 d2.data.common]: [0mSerialized dataset takes 0.11 MiB
+[5m[31mWARNING[0m [32m[11/16 01:01:29 d2.engine.defaults]: [0mNo evaluator found. Use `DefaultTrainer.test(evaluators=)`, or implement its `build_evaluator` method.
+USING MODEL WEIGHT: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp10/model_0009999.pth
+Dataset: satellite_Val
+	File: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S08_03_SE1_1000X03.png
+ddict info:
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S08_03_SE1_1000X03.png
+	num_instances: 68
+	File: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S06_01_SE1_500X67.png
+ddict info:
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S06_01_SE1_500X67.png
+	num_instances: 52
+	File: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S04_02_SE1_1000X50.png
+ddict info:
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S04_02_SE1_1000X50.png
+	num_instances: 37
+	File: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S03_03_SE1_1250X41.png
+ddict info:
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S03_03_SE1_1250X41.png
+	num_instances: 90
+	File: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S02_01_SE1_300X14.png
+ddict info:
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S02_01_SE1_300X14.png
+	num_instances: 62
+	File: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/HP743_2S_250x.png
+ddict info:
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/HP743_2S_250x.png
+	num_instances: 55
+gt filename: S08_03_SE1_1000X03.png	 pred filename: S08_03_SE1_1000X03.png
+gt filename: S06_01_SE1_500X67.png	 pred filename: S06_01_SE1_500X67.png
+gt filename: S04_02_SE1_1000X50.png	 pred filename: S04_02_SE1_1000X50.png
+gt filename: S03_03_SE1_1250X41.png	 pred filename: S03_03_SE1_1250X41.png
+gt filename: S02_01_SE1_300X14.png	 pred filename: S02_01_SE1_300X14.png
+gt filename: HP743_2S_250x.png	 pred filename: HP743_2S_250x.png
+x:  [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2]
+y:  [0.6, 0.38, 0.62, 0.53, 0.56, 0.49, 0.47, 0.37, 0.51, 0.43, 0.36, 0.55]
+Average Precision Score:  0.5329894559970461
+Average Recall Score:     0.44799771168818786
+Precision: 0.8855569757152689
+Recall: 0.5741696946516224
+---
+Precision: 0.6276705466332695
+Recall: 0.542882630304575
+---
+Precision: 0.858010068107788
+Recall: 0.6013906185139062
+---
+Precision: 0.5643391124542707
+Recall: 0.5204635470148159
+---
+Precision: 0.8738822901374617
+Recall: 0.5690449291735465
+---
+Precision: 0.3754275427542754
+Recall: 0.4969025494400762
+---
+USING MODEL WEIGHT: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp10/model_final.pth
+Dataset: satellite_Val
+	File: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S08_03_SE1_1000X03.png
+ddict info:
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S08_03_SE1_1000X03.png
+	num_instances: 68
+	File: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S06_01_SE1_500X67.png
+ddict info:
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S06_01_SE1_500X67.png
+	num_instances: 52
+	File: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S04_02_SE1_1000X50.png
+ddict info:
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S04_02_SE1_1000X50.png
+	num_instances: 37
+	File: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S03_03_SE1_1250X41.png
+ddict info:
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S03_03_SE1_1250X41.png
+	num_instances: 90
+	File: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S02_01_SE1_300X14.png
+ddict info:
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/S02_01_SE1_300X14.png
+	num_instances: 62
+	File: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/HP743_2S_250x.png
+ddict info:
+	path: ../SALAS_Rep/../../../../../../../ocean/projects/dmr200021p/sprice/initial_paper_complete_set/HP743_2S_250x.png
+	num_instances: 55
+gt filename: S08_03_SE1_1000X03.png	 pred filename: S08_03_SE1_1000X03.png
+gt filename: S06_01_SE1_500X67.png	 pred filename: S06_01_SE1_500X67.png
+gt filename: S04_02_SE1_1000X50.png	 pred filename: S04_02_SE1_1000X50.png
+gt filename: S03_03_SE1_1250X41.png	 pred filename: S03_03_SE1_1250X41.png
+gt filename: S02_01_SE1_300X14.png	 pred filename: S02_01_SE1_300X14.png
+gt filename: HP743_2S_250x.png	 pred filename: HP743_2S_250x.png
+x:  [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2]
+y:  [0.6, 0.38, 0.62, 0.53, 0.56, 0.49, 0.47, 0.37, 0.51, 0.43, 0.36, 0.55]
+Average Precision Score:  0.5329894559970461
+Average Recall Score:     0.44799771168818786
+Precision: 0.8855569757152689
+Recall: 0.5741696946516224
+---
+Precision: 0.6276705466332695
+Recall: 0.542882630304575
+---
+Precision: 0.858010068107788
+Recall: 0.6013906185139062
+---
+Precision: 0.5643391124542707
+Recall: 0.5204635470148159
+---
+Precision: 0.8738822901374617
+Recall: 0.5690449291735465
+---
+Precision: 0.3754275427542754
+Recall: 0.4969025494400762
+---
+Ignoring Final Model
+Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp10/model_0009999.pth
+Current File Path
+../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp10/model_0009999.pth
+New File Path
+../../../../../../../ocean/projects/dmr200021p/sprice/variance/CPU_FULL_CONFIG-10/trial1/model0.pth
+Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp10/model_final.pth
+Current File Path
+../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp10/model_final.pth
+New File Path
+../../../../../../../ocean/projects/dmr200021p/sprice/variance/CPU_FULL_CONFIG-10/trial1/model0.pth
+Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp10/results_checkpoint_0009999.pickle
+../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp10/results_checkpoint_0009999.pickle
+Deleting: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp10/results_checkpoint_final.pickle
+../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp10/results_checkpoint_final.pickle
+Removing: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp10/metrics.json
+Removing: ../../../../../../../ocean/projects/dmr200021p/sprice/tuning/weights/batch_temp10/last_checkpoint
+/var/spool/slurm/d/job5046557/slurm_script: line 9: ./gpua.out: No such file or directory
