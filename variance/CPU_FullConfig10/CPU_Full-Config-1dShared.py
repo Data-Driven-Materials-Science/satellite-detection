@@ -41,17 +41,26 @@ from ampis.visualize import display_iset
 EXPERIMENT_NAME = 'satellite'                       # can be 'particle' or 'satellite'
 NUM_ITERATIONS = 10000                              # The total number of training iterations
 CHECKPOINT_NUM = 10000                              # This is the number of iterations before a checkpoint is stored
-NUM_MODELS = 10                                     # This is the number of models that will be trained from scratch
-OFFSET = 0                                          # This is used if trainings are split into A and B, if A, = 0, if B, = NUM_MODELS
-TEMP_FOLDER = 'batch_temp1'                         # The file that model weights will be stored after training before being analyzed
-OUTPUT_FILE = '../NO_CONFIG_OUTPUT-3.txt'           # This is the file that stores precision scores
+NUM_MODELS = 1                                      # This is the number of models that will be trained from scratch
+OFFSET = 3                                          # This is used if trainings are split into A and B, if A, = 0, if B, = NUM_MODELS
+TEMP_FOLDER = 'batch_temp13'                        # The file that model weights will be stored after training before being analyzed
+OUTPUT_FILE = '../CPU_FULL_CONFIG_Output-10.txt'     # This is the file that stores precision scores
 LR = 0.01                                           # Learning Rate that is used
 WD = 0.000005                                       # Weight Decay used
 BB = 'ResNet50'                                     # Backbone structure, although not currently configured to work
 SEED = 42                                           # Numerican Value RNG's are set to
-FINAL_MODEL_FOLDER = '../../../../../../../ocean/projects/dmr200021p/sprice/variance/No_Config3/trial1/'
+FINAL_MODEL_FOLDER = '../../../../../../../ocean/projects/dmr200021p/sprice/variance/CPU_FULL_CONFIG-10/trial1/'
 #--------------------------------------------------------------
 for loop_num in range(NUM_MODELS):
+    random.seed(SEED)
+    np.random.seed(SEED)
+    #https://pytorch.org/docs/stable/notes/randomness.html
+    torch.manual_seed(SEED)
+    torch.backends.cudnn.benchmark = False
+    torch.use_deterministic_algorithms(True)
+    #https://discuss.pytorch.org/t/random-seed-with-external-gpu/102260/4
+
+    ##LOADING DATA
     json_path_train = Path('..', 'SALAS_Rep', 'satellite_training.json')  # path to training data
     json_path_val = Path('..', 'SALAS_Rep', 'satellite_validation.json')  # path to training data
     assert json_path_train.is_file(), 'training file not found!'
@@ -99,12 +108,16 @@ for loop_num in range(NUM_MODELS):
     cfg.DATASETS.TEST = (dataset_train, dataset_valid)  # we will look at the predictions on both sets after training
     cfg.SOLVER.IMS_PER_BATCH = 1 # number of images per batch (across all machines)
     cfg.SOLVER.CHECKPOINT_PERIOD = CHECKPOINT_NUM  # number of iterations after which to save model checkpoints
-    cfg.MODEL.DEVICE='cuda'  # 'cpu' to force model to run on cpu, 'cuda' if you have a compatible gpu
+    cfg.MODEL.DEVICE='cpu'  # 'cpu' to force model to run on cpu, 'cuda' if you have a compatible gpu
     cfg.MODEL.ROI_HEADS.NUM_CLASSES = 1 # Since we are training separate models for particles and satellites there is only one class output
     cfg.TEST.DETECTIONS_PER_IMAGE = 400 if EXPERIMENT_NAME == 'particle' else 250  # maximum number of instances that can be detected in an image (this is fixed in mask r-cnn)
     cfg.SOLVER.MAX_ITER = NUM_ITERATIONS  # maximum number of iterations to run during training
                                 # Increasing this may improve the training results, but will take longer to run (especially without a gpu!)
     #-------------------------------------------------
+    # TURNING OFF RANDOM DATA AUGMENTATION
+    cfg.INPUT.RANDOM_FLIP = "none"
+    # SETTING A SPECIFIC CNN SEED
+    cfg.SEED = SEED
     #-------------------------------------------------
     cfg.SOLVER.BASE_LR = LR
     cfg.SOLVER.WEIGHT_DECAY = WD
