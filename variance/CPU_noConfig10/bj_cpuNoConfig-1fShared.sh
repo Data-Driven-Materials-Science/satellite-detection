@@ -4,6 +4,6 @@
 #SBATCH -t 24:00:00
 #SBATCH --gpus=2
 
-python3 CPU_No-Config-1eShared.py
+python3 CPU_No-Config-1fShared.py
 
 ./gpua.out

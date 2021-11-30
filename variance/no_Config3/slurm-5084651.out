@@ -1,0 +1,2 @@
+python3: can't open file 'noConfig-3f.py': [Errno 2] No such file or directory
+/var/spool/slurm/d/job5084651/slurm_script: line 8: ./gpua.out: No such file or directory
