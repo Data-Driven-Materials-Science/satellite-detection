@@ -8,7 +8,7 @@ import json
 ampis_root = Path('../')
 sys.path.append(str(ampis_root))
 
-from ampis import data_utils
+from AMPIS import data_utils
 
 '''CURRENT PROBLEM: This can make polygon shapes with only 2 points, and those break the training'''
 

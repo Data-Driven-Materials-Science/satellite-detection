@@ -24,21 +24,21 @@ from detectron2.data import (
 from detectron2.engine import DefaultTrainer, DefaultPredictor
 from detectron2.structures import BoxMode
 
-root = '../../../'
+root = '../../'
 ocean_images = root + '../../../../ocean/projects/dmr200021p/sprice/tuning/'
 sys.path.append(root)
 
-from ampis import data_utils, visualize, analyze
-from ampis.applications import powder
-from ampis.structures import InstanceSet
-from ampis.visualize import display_iset
+from AMPIS import data_utils, visualize, analyze
+from AMPIS.applications import powder
+from AMPIS.structures import InstanceSet
+from AMPIS.visualize import display_iset
 
 #CONSTANTS
 #--------------------------------------------------------------
 EXPERIMENT_NAME = 'satellite' # can be 'particle' or 'satellite'
-NUM_ITERATIONS = 100
-CHECKPOINT_NUM = 50
-NUM_CYCLES = 2
+NUM_ITERATIONS = 5000
+CHECKPOINT_NUM = 5000
+NUM_CYCLES = 1
 OUTPUT_FOLDER = 'batch_temp1'
 LR = 0.001
 WD = 0.0001
@@ -47,8 +47,8 @@ BB = 'ResNet50'
 
 
 ##LOADING DATA
-json_path_train = Path(ocean_images,'satellite_auto_training_v1.6.json')  # path to training data
-json_path_val = Path(ocean_images, 'satellite_auto_validation_v1.2.json')  # path to training data
+json_path_train = Path('SALAS_Rep', 'images', 'solar_trainingV2.json')  # path to training data
+json_path_val = Path('SALAS_Rep', 'images', 'solar_validV2.json')  # path to training data
 assert json_path_train.is_file(), 'training file not found!'
 assert json_path_val.is_file(), 'validation file not found!'
 
@@ -108,7 +108,7 @@ else:
     weights_path = model_zoo.get_checkpoint_url("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
     print('Weights not found, weights will be downloaded from source: {}'.format(weights_path))
 cfg.MODEL.WEIGHTs = str(weights_path)
-cfg.OUTPUT_DIR = str(Path(ocean_images, 'weights', OUTPUT_FOLDER))
+cfg.OUTPUT_DIR = str(Path('weights', OUTPUT_FOLDER))
 # make the output directory
 os.makedirs(Path(cfg.OUTPUT_DIR), exist_ok=True)
 
