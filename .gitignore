@@ -12,3 +12,4 @@ Jupyter_notebooks/Auto-Annotation/transformation_training/train_powder_transform
 Jupyter_notebooks/Auto-Annotation/transformation_training/train_powder_transformations.ipynb
 **/*.ipynb_checkpoints/
 /solarCells/batch_jobs/weights
+/solarCells/troubleShooting/weights/
